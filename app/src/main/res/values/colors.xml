@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //MAIN COLORS
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    //MONOCHROME
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGray">#b2adad</color>
+
+    //GREEN
+    <color name="colorGreen">#abf4d2</color>
+    <color name="colorLightBlue">#52cec6</color>
+    <color name="colorMadun">#4dd1a9</color>
+
+    //BLUE
+    <color name="bluePrimary">#203DD1</color>
+    <color name="colorBlue">#4286f4</color>
+    <color name="colorAzure">#f0ffff</color>
+    <color name="bgPrimary">#EDF1F8</color>
+
+    //USED
+    <color name="bg_item">#abf4d2</color>
+    <color name="font_item">#000000</color>
+    <color name="bg_item_2">#f0ffff</color>
+    <color name="bg_eom">#203DD1</color>
+    <color name="font_eom">#000000</color>
+
+</resources>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".BDetailActivity">
+
+    <include layout="@layout/custom_toolbar_add" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/colorBlue"
+        android:paddingLeft="8dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:text="Store"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_store_code"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:inputType="text"
+            android:paddingLeft="2dp"
+            android:text="399"
+            android:textColor="@color/colorBlack"
+            android:background="@color/colorWhite"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_store_name"
+            android:background="@color/colorWhite"
+            android:layout_marginLeft="8dp"
+            android:layout_width="210dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:gravity="center"
+            android:text="AAA3"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_search_store"
+            android:background="@color/colorWhite"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_search"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:background="@color/colorBlue"
+        android:layout_height="40dp"
+        android:paddingLeft="8dp"
+        android:orientation="horizontal"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:text="No"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_trx_no"
+            android:layout_width="143dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:inputType="text"
+            android:gravity="center"
+            android:text="AAA3"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Tgl"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_trx_date"
+            android:background="@color/colorWhite"
+            android:textColor="@color/colorBlack"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:focusable="false"
+            android:text="14 JUN 2018"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/colorBlue"
+        android:paddingLeft="8dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:text="Artcl"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_article"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:inputType="text"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp" />
+        <ImageView
+            android:id="@+id/iv_search_article"
+            android:background="@color/colorWhite"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_search"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Rp"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:background="@color/colorWhite"
+            android:textColor="@color/colorBlack"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:focusable="false"
+            android:text=""
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="8dp"
+        android:background="@color/colorBlue"
+        android:orientation="horizontal"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:text="Qty"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_qty"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:textColor="@color/colorBlack"
+            android:gravity="center"
+            android:inputType="number"
+            android:text="1" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="8dp"
+        android:background="@color/colorBlue"
+        android:orientation="horizontal"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:text="Notes"
+            android:textColor="@color/colorBlack"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/et_notes"
+            android:paddingLeft="8dp"
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:textColor="@color/colorBlack"
+            android:inputType="text"
+            android:text="" />
+
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="SAVE"/>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:background="@color/colorAzure"
+        android:paddingTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_b_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/items_b_detail">
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

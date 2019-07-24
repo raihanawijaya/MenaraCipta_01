@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:paddingLeft="2dp"
+    android:background="@color/bluePrimary"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <LinearLayout
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorWhite"
+                    android:fontFamily="@font/monbold"
+                    android:textSize="14sp"
+                    android:text="RGL :" />
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:fontFamily="@font/monsemibold"
+                    android:text="471"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:src="@drawable/ic_del"
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
+
+            <ImageView
+                android:id="@+id/iv_add"
+                android:src="@drawable/ic_note_add"
+                android:layout_marginRight="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+</android.support.v7.widget.Toolbar>
