@@ -203,6 +203,7 @@
             android:textColor="@color/colorBlack"
             android:gravity="center"
             android:inputType="number"
+            android:textSize="12sp"
             android:text="1" />
 
 
@@ -234,6 +235,7 @@
             android:background="@color/colorWhite"
             android:textColor="@color/colorBlack"
             android:inputType="text"
+            android:textSize="12sp"
             android:text="" />
 
 

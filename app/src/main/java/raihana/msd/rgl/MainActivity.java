@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
     private void initData() {
         tvStoreCode.setText(sharedPreference.getObjectData("username", String.class));
 
+        String today = dateUtils.formatCurrentDate(DateUtils.SDF_FORMAT2);
         int firstDay = dateUtils.getCurrentDays() - (dateUtils.getCurrentDays() - 1);
         String firstDayString = firstDay + "/" + (dateUtils.getCurrentMonth() + 1) + "/" + dateUtils.getCurrentYear();
         try {
@@ -166,9 +167,10 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         etDate2.setText(dateUtils.formatCurrentDate(DateUtils.SDF_FORMAT2));
-
         date_out1 = etDate1.getText().toString();
         date_out2 = etDate2.getText().toString();
+
+        sharedPreference.storeData("today", today);
     }
 
     private void initTabs() {

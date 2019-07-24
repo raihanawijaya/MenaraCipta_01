@@ -4,10 +4,12 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +29,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import raihana.msd.rgl.adapter.BDetailAdapter;
@@ -49,6 +52,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
     private BDetailAdapter b_detail_adapter;
     private SharedPreference sharedPreference;
     private SwipeRefreshLayout swipeRefreshLayout;
+    private Context context;
 
     public void sync() {
         try{
@@ -63,6 +67,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b_detail);
         connectionClass = new ConnectionClass();
+        this.context = context;
         //RECYCLER VIEW
         myRecyclerView = (RecyclerView) findViewById(R.id.rv_b_detail);
         myRecyclerView.setHasFixedSize(true);
@@ -111,9 +116,25 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
        ivAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputNewSales inputNewSales = new InputNewSales();// this is the Asynctask, which is used to process in background to reduce load on app process
-                inputNewSales.execute("");
-                setDataEmpty();
+                new AlertDialog.Builder(BDetailActivity.this)
+                        .setTitle("Confirm?")
+                        .setMessage("Apakah anda ingin membuat order baru?")
+                        .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                InputNewSales inputNewSales = new InputNewSales();// this is the Asynctask, which is used to process in background to reduce load on app process
+                                inputNewSales.execute("");
+                                etTrxDate.setText(sharedPreference.getObjectData("today", String.class));
+                                setDataEmpty();
+                            }
+                        })
+                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -245,10 +266,6 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         @Override
         protected void onPostExecute(String msg) {
             progress.dismiss();
-            Toast.makeText(BDetailActivity.this, msg + "", Toast.LENGTH_SHORT).show();
-            Toast toast = Toast.makeText(BDetailActivity.this,msg, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
             if (success == false) {
             } else {
                 try {
