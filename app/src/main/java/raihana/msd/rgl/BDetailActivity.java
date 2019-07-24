@@ -105,7 +105,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         //SWIPE
         swipeRefreshLayout = findViewById(R.id.swipe);
         swipeRefreshLayout.setOnRefreshListener(this);
-        SyncData orderData = new SyncData();
+        final SyncData orderData = new SyncData();
         orderData.execute();
 
        ivAdd.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +113,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             public void onClick(View view) {
                 InputNewSales inputNewSales = new InputNewSales();// this is the Asynctask, which is used to process in background to reduce load on app process
                 inputNewSales.execute("");
+                setDataEmpty();
             }
         });
 
@@ -176,6 +177,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
     public void onRefresh() {
         try {
             new SyncData().execute();
+            swipeRefreshLayout.setRefreshing(false);
         }catch (Exception e){
             Log.e(BDetailActivity.class.getSimpleName()
                     , "onResume: Start Service Failed, because : " + e.getMessage() );
@@ -186,137 +188,6 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-
-
-    private class SyncData extends AsyncTask<String, String, String> {
-        String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
-        ProgressDialog progress;
-
-        String trxDate = etTrxDate.getText().toString();
-
-        @Override
-        protected void onPreExecute() {
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                Connection conn = connectionClass.CONN();
-                if (conn == null) {
-                    success = false;
-                } else {
-                    String query = "EXEC DB_A4A292_RGL.dbo.SP_TRX_USER_ID_STORE '" + username + "','" + trxNo +"'";
-                    Log.d("QUERY", query);
-                    Statement stmt = conn.createStatement();
-                    ResultSet rs = stmt.executeQuery(query);
-                    if (rs != null) {
-                        list_detail_B.clear(); // kalau datanya ada listnya di clear dulu
-                        while (rs.next()) {
-                            try {
-                                // kalau ada data masukkan ke list
-                                list_detail_B.add(new BDetailClass(rs.getString("ARTICLE"),rs.getString("QTY"),rs.getString("PRICE"),rs.getString("GROSS")));
-                            } catch (Exception ex) {
-                                ex.printStackTrace();
-                            }
-                        }
-                        msg = "Found";
-                        success = true;
-                    } else {
-                        msg = "No Data Found";
-                        success = false;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                Writer writer = new StringWriter();
-                e.printStackTrace(new PrintWriter(writer));
-                msg = writer.toString();
-                success = false;
-
-            }
-            return msg;
-        }
-
-        @Override
-        protected void onPostExecute(String msg) {
-            if (success == false) {
-            } else {
-                try {
-                    b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
-                    myRecyclerView.setAdapter(b_detail_adapter);
-                } catch (Exception ex) {
-                }
-            }
-        }
-    }
-
-    private class InputData extends AsyncTask<String, String, String> {
-        String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
-        ProgressDialog progress;
-
-        String trxDate = etTrxDate.getText().toString();
-        String article = tvArticle.getText().toString();
-        String priceString = tvPrice.getText().toString().replace(",","");;
-        String qtyString = etQty.getText().toString();
-        int qty = Integer.parseInt(qtyString); //DONE
-        float price = Float.parseFloat(priceString); //DONE
-
-        @Override
-        protected void onPreExecute() {
-            progress = ProgressDialog.show(BDetailActivity.this,
-                    "Input Data", "Loading! Please wait...", true);
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                Connection conn = connectionClass.CONN();
-                if (conn == null) {
-                    success = false;
-                } else {
-                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price +"'";
-                    Log.d("QUERY", query);
-                    Statement stmt = conn.createStatement();
-                    int status = stmt.executeUpdate(query);
-                    if (status != 0) {
-                        msg = "Input Success";
-                        success = true;
-                    } else {
-                        msg = "Input Failed";
-                        success = false;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                Writer writer = new StringWriter();
-                e.printStackTrace(new PrintWriter(writer));
-                msg = "Gagal : Check Uniqueid & Disc !" ;//writer.toString();
-                success = false;
-
-            }
-            return msg;
-        }
-
-        @Override
-        protected void onPostExecute(String msg) {
-            progress.dismiss();
-            Toast.makeText(BDetailActivity.this, msg + "", Toast.LENGTH_SHORT).show();
-            Toast toast = Toast.makeText(BDetailActivity.this,msg, Toast.LENGTH_LONG);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.show();
-
-            if (success == false) {
-            } else {
-                try {
-                    b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
-                    myRecyclerView.setAdapter(b_detail_adapter);
-                } catch (Exception ex) {
-                }
-            }
-
-        }
-    }
-
 
     private class InputNewSales extends AsyncTask<String, String, String> {
         String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
@@ -381,13 +252,144 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             if (success == false) {
             } else {
                 try {
-                    tvTrxNo.setText(trxNoNew);
+                    trxNo = trxNoNew;
+                    tvTrxNo.setText(trxNo);
+                    onRefresh();
                 } catch (Exception ex) {
                 }
             }
 
         }
     }
+
+    private class SyncData extends AsyncTask<String, String, String> {
+        String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
+        ProgressDialog progress;
+        String trxDate = etTrxDate.getText().toString();
+        String trxCode = tvTrxNo.getText().toString();
+
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                Connection conn = connectionClass.CONN();
+                if (conn == null) {
+                    success = false;
+                } else {
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_TRX_USER_ID_STORE '" + username + "','" + trxCode +"'";
+                    Log.d("QUERY", query);
+                    Statement stmt = conn.createStatement();
+                    ResultSet rs = stmt.executeQuery(query);
+                    if (rs != null) {
+                        list_detail_B.clear(); // kalau datanya ada listnya di clear dulu
+                        while (rs.next()) {
+                            try {
+                                // kalau ada data masukkan ke list
+                                list_detail_B.add(new BDetailClass(rs.getString("ARTICLE"),rs.getString("QTY"),rs.getString("PRICE"),rs.getString("GROSS")));
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+                        msg = "Found";
+                        success = true;
+
+                    } else {
+                        msg = "No Data Found";
+                        success = false;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Writer writer = new StringWriter();
+                e.printStackTrace(new PrintWriter(writer));
+                msg = writer.toString();
+                success = false;
+
+            }
+            return msg;
+        }
+
+        @Override
+        protected void onPostExecute(String msg) {
+            if (success == false) {
+            } else {
+                try {
+                    b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
+                    myRecyclerView.setAdapter(b_detail_adapter);
+                } catch (Exception ex) {
+                }
+            }
+        }
+    }
+
+    private class InputData extends AsyncTask<String, String, String> {
+        String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
+        ProgressDialog progress;
+        String trxNo = tvTrxNo.getText().toString();
+        String trxDate = etTrxDate.getText().toString();
+        String article = tvArticle.getText().toString();
+        String priceString = tvPrice.getText().toString().replace(",","");;
+        String qtyString = etQty.getText().toString();
+        int qty = Integer.parseInt(qtyString); //DONE
+        float price = Float.parseFloat(priceString); //DONE
+
+        @Override
+        protected void onPreExecute() {
+            progress = ProgressDialog.show(BDetailActivity.this,
+                    "Input Data", "Loading! Please wait...", true);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                Connection conn = connectionClass.CONN();
+                if (conn == null) {
+                    success = false;
+                } else {
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price +"'";
+                    Log.d("QUERY", query);
+                    Statement stmt = conn.createStatement();
+                    int status = stmt.executeUpdate(query);
+                    if (status != 0) {
+                        msg = "Input Success";
+                        success = true;
+                    } else {
+                        msg = "Input Failed";
+                        success = false;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Writer writer = new StringWriter();
+                e.printStackTrace(new PrintWriter(writer));
+                msg = "Gagal : Check Uniqueid & Disc !" ;//writer.toString();
+                success = false;
+
+            }
+            return msg;
+        }
+
+        @Override
+        protected void onPostExecute(String msg) {
+            progress.dismiss();
+            swipeRefreshLayout.setRefreshing(false);
+            if (success == false) {
+            } else {
+                try {
+                    b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
+                    myRecyclerView.setAdapter(b_detail_adapter);
+                } catch (Exception ex) {
+                }
+            }
+
+        }
+    }
+
+
+
 
 /*    private class DeleteData extends AsyncTask<String, String, String> {
         String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
@@ -518,6 +520,13 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         tvArticle.setText(model.getArticle());
         tvPrice.setText(model.getPrice());
         etQty.setText(model.getQty());
+        supportInvalidateOptionsMenu();
+    }
+
+    public void setDataEmpty(){
+        tvArticle.setText("");
+        tvPrice.setText("");
+        etQty.setText("");
         supportInvalidateOptionsMenu();
     }
 
