@@ -366,7 +366,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 if (conn == null) {
                     success = false;
                 } else {
-                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price +"'";
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxNo   + "','" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price +"'";
                     Log.d("QUERY", query);
                     Statement stmt = conn.createStatement();
                     int status = stmt.executeUpdate(query);
