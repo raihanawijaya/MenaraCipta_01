@@ -39,7 +39,7 @@ import raihana.msd.rgl.utils.SharedPreference;
 
 public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private EditText etTrxDate, etDiscCode, etUniqueID,etPrice, etQty;
-    private ImageView ivDelete, ivSearchArticle, ivSearchStore, ivAdd;
+    private ImageView ivDelete, ivSearchArticle, ivSearchStore, ivAdd, ivReset;
     private TextView tvStoreCode, tvStoreName, tvTrxNo, tvPrice, tvArticle, tvUsername;
     private String storeCode,storeName, onDate, trxNo, username, price;
     private Button btn_save;
@@ -106,6 +106,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         ivSearchStore = findViewById(R.id.iv_search_store);
         ivSearchArticle = findViewById(R.id.iv_search_article);
         ivDelete = findViewById(R.id.iv_delete);
+        ivReset = findViewById(R.id.iv_clear);
         btn_save = findViewById(R.id.btn_save);
         //SWIPE
         swipeRefreshLayout = findViewById(R.id.swipe);
@@ -138,26 +139,49 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             }
         });
 
+        ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(BDetailActivity.this)
+                        .setTitle("Confirm?")
+                        .setMessage("Apakah anda ingin menghapus no order ini?")
+                        .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                InputNewSales inputNewSales = new InputNewSales();// this is the Asynctask, which is used to process in background to reduce load on app process
+                                inputNewSales.execute("");
+                                etTrxDate.setText(sharedPreference.getObjectData("today", String.class));
+                                setDataEmpty();
+                            }
+                        })
+                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .show();
+            }
+        });
+
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 InputData inputData = new InputData();// this is the Asynctask, which is used to process in background to reduce load on app process
                 inputData.execute("");
+                sync();
+            }
+        });
+
+        ivReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setDataEmptyAll();
             }
         });
 
 
-       /*
-        ivDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                DeleteData deleteData = new DeleteData();// this is the Asynctask, which is used to process in background to reduce load on app process
-                deleteData.execute("");
-                onRefresh();
-            }
-        });*/
-
-        ivSearchArticle.setOnClickListener(new View.OnClickListener() {
+       ivSearchArticle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent gotosearch = new Intent(BDetailActivity.this,SearchArticleActivity.class);
@@ -214,6 +238,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
         ProgressDialog progress;
 
+        String storeCode = tvStoreCode.getText().toString();
         String trxNoNew;
 
         @Override
@@ -345,6 +370,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
     private class InputData extends AsyncTask<String, String, String> {
         String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
         ProgressDialog progress;
+        String storeCode = tvStoreCode.getText().toString();
         String trxNo = tvTrxNo.getText().toString();
         String trxDate = etTrxDate.getText().toString();
         String article = tvArticle.getText().toString();
@@ -541,6 +567,17 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
     }
 
     public void setDataEmpty(){
+        tvArticle.setText("");
+        tvPrice.setText("");
+        etQty.setText("");
+        supportInvalidateOptionsMenu();
+    }
+
+    public void setDataEmptyAll(){
+        tvStoreCode.setText("");
+        tvStoreName.setText("");
+        etTrxDate.setText("");
+        tvTrxNo.setText("");
         tvArticle.setText("");
         tvPrice.setText("");
         etQty.setText("");

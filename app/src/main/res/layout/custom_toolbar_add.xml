@@ -56,22 +56,28 @@
 
         <LinearLayout
             android:layout_weight="1"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="25dp"
             android:orientation="horizontal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/iv_clear"
+                android:src="@drawable/ic_back"
+                android:layout_width="30dp"
+                android:layout_height="50dp" />
+
+            <ImageView
                 android:id="@+id/iv_delete"
                 android:src="@drawable/ic_del"
+                android:layout_marginRight="18dp"
+                android:layout_marginLeft="18dp"
                 android:layout_width="30dp"
                 android:layout_height="50dp" />
 
             <ImageView
                 android:id="@+id/iv_add"
                 android:src="@drawable/ic_note_add"
-                android:layout_marginRight="24dp"
-                android:layout_marginLeft="24dp"
                 android:layout_width="30dp"
                 android:layout_height="50dp" />
 

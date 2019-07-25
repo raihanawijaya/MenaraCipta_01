@@ -1,6 +1,7 @@
 package raihana.msd.rgl.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -22,6 +24,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import raihana.msd.rgl.BDetailActivity;
 import raihana.msd.rgl.MainActivity;
 import raihana.msd.rgl.R;
 import raihana.msd.rgl.adapter.AAdapter;
@@ -43,6 +46,7 @@ public class AFragment extends BaseFragment implements SwipeRefreshLayout.OnRefr
     private SwipeRefreshLayout swipeRefreshLayout;
     private SharedPreference sharedPreference;
     private String startDate, endDate, storeCode;
+    private LinearLayout lay_a_add;
 
     public void sync() {
         try{
@@ -70,8 +74,18 @@ public class AFragment extends BaseFragment implements SwipeRefreshLayout.OnRefr
         swipeRefreshLayout = v.findViewById(R.id.swipe);
         swipeRefreshLayout.setOnRefreshListener(this);
         storeCode = sharedPreference.getObjectData("username", String.class);
+        lay_a_add = v.findViewById(R.id.lay_a_add);
+        lay_a_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), BDetailActivity.class);
+                startActivity(intent);
+            }
+        });
         return v;
         //5. Make the RV
+
+
     }
 
     private class SyncData extends AsyncTask<String, String, String> {
