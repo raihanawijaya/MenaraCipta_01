@@ -38,11 +38,11 @@ import raihana.msd.rgl.model.BDetailClass;
 import raihana.msd.rgl.utils.SharedPreference;
 
 public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
-    private EditText etTrxDate, etDiscCode, etUniqueID,etPrice, etQty;
+    private EditText etTrxDate, etNotes, etQty;
     private ImageView ivDelete, ivSearchArticle, ivSearchStore, ivAdd, ivReset;
     private TextView tvStoreCode, tvStoreName, tvTrxNo, tvPrice, tvArticle, tvUsername;
     private String storeCode,storeName, onDate, trxNo, username, price;
-    private Button btn_save;
+    private Button btn_save, btn_delete_item;
     private boolean success = false;
     //FILE ETC
     private RecyclerView myRecyclerView;
@@ -86,6 +86,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         //EDITTEXT
         etTrxDate = findViewById(R.id.et_trx_date);
         etQty = findViewById(R.id.et_qty);
+        etNotes = findViewById(R.id.et_notes);
         etTrxDate.setText(onDate);
         /*etUniqueID.setText(uniqueID);
         etPrice.setText(price);*/
@@ -108,6 +109,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         ivDelete = findViewById(R.id.iv_delete);
         ivReset = findViewById(R.id.iv_clear);
         btn_save = findViewById(R.id.btn_save);
+        btn_delete_item = findViewById(R.id.btn_delete_row);
         //SWIPE
         swipeRefreshLayout = findViewById(R.id.swipe);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -148,10 +150,35 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                         .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                InputNewSales inputNewSales = new InputNewSales();// this is the Asynctask, which is used to process in background to reduce load on app process
-                                inputNewSales.execute("");
-                                etTrxDate.setText(sharedPreference.getObjectData("today", String.class));
-                                setDataEmpty();
+                                DeleteData deleteData = new DeleteData();// this is the Asynctask, which is used to process in background to reduce load on app process
+                                deleteData.execute("");
+                                sync();
+                                setDataEmptyAll();
+
+                            }
+                        })
+                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        })
+                        .show();
+            }
+        });
+
+        btn_delete_item.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new AlertDialog.Builder(BDetailActivity.this)
+                        .setTitle("Confirm?")
+                        .setMessage("Apakah anda ingin cancel artikel ini?")
+                        .setPositiveButton("Ya, cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                DeleteDataItem deleteData = new DeleteDataItem();// this is the Asynctask, which is used to process in background to reduce load on app process
+                                deleteData.execute("");
+                                sync();
                             }
                         })
                         .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
@@ -330,7 +357,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                         while (rs.next()) {
                             try {
                                 // kalau ada data masukkan ke list
-                                list_detail_B.add(new BDetailClass(rs.getString("ARTICLE"),rs.getString("QTY"),rs.getString("PRICE"),rs.getString("GROSS")));
+                                list_detail_B.add(new BDetailClass(rs.getString("ARTICLE"),rs.getString("QTY"),rs.getString("PRICE"),rs.getString("GROSS"),rs.getString("NOTES")));
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
@@ -378,6 +405,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         String qtyString = etQty.getText().toString();
         int qty = Integer.parseInt(qtyString); //DONE
         float price = Float.parseFloat(priceString); //DONE
+        String notes = etNotes.getText().toString();
 
         @Override
         protected void onPreExecute() {
@@ -392,7 +420,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 if (conn == null) {
                     success = false;
                 } else {
-                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxNo   + "','" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price +"'";
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxNo  + "','" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price + "','" + notes +"'";
                     Log.d("QUERY", query);
                     Statement stmt = conn.createStatement();
                     int status = stmt.executeUpdate(query);
@@ -431,18 +459,16 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         }
     }
 
-
-
-
-/*    private class DeleteData extends AsyncTask<String, String, String> {
+    private class DeleteData extends AsyncTask<String, String, String> {
         String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
         ProgressDialog progress;
-        String trxDate = onDate;
-        String nikCode = storeCode;
-        String uniqueID = etUniqueID.getText().toString();
-        String discCode = etDiscCode.getText().toString();
-        String priceString = etPrice.getText().toString().replace(",","");
-        int price = Integer.parseInt(priceString); //DONE
+        String storeCode = tvStoreCode.getText().toString();
+        String trxNo = tvTrxNo.getText().toString();
+        String trxDate = etTrxDate.getText().toString();
+        String article = "X";
+        int qty = 0;
+        float price = 0;
+        String notes = "X";
 
         @Override
         protected void onPreExecute() {
@@ -457,15 +483,15 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 if (conn == null) {
                     success = false;
                 } else {
-                    String query = "EXEC ANDROIDXP_ENJI.[dbo].[SP_DELETE_SALES] '" + trxDate + "','" + storeCode + "','" + nikCode + "','" + uniqueID + "','" + discCode + "','" + price +"'";
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_DELETE_SALES_HDR '" + trxNo   + "','" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price + "','" + notes +"'";
                     Log.d("QUERY", query);
                     Statement stmt = conn.createStatement();
                     int status = stmt.executeUpdate(query);
                     if (status != 0) {
-                        msg = "Delete Success";
+                        msg = "Input Success";
                         success = true;
                     } else {
-                        msg = "Delete Failed";
+                        msg = "Input Failed";
                         success = false;
                     }
                 }
@@ -473,7 +499,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 e.printStackTrace();
                 Writer writer = new StringWriter();
                 e.printStackTrace(new PrintWriter(writer));
-                msg = writer.toString();
+                msg = "Gagal : Check Uniqueid & Disc !" ;//writer.toString();
                 success = false;
 
             }
@@ -483,7 +509,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         @Override
         protected void onPostExecute(String msg) {
             progress.dismiss();
-            Toast.makeText(BDetailActivity.this, msg + "", Toast.LENGTH_SHORT).show();
+            swipeRefreshLayout.setRefreshing(false);
             if (success == false) {
             } else {
                 try {
@@ -496,15 +522,16 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         }
     }
 
-    private class UpdateData extends AsyncTask<String, String, String> {
+    private class DeleteDataItem extends AsyncTask<String, String, String> {
         String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
         ProgressDialog progress;
-        String trxDate = onDate;
-        String nikCode = storeCode;
-        String uniqueID = etUniqueID.getText().toString();
-        String discCode = etDiscCode.getText().toString();
-        String priceString = etPrice.getText().toString().replace(",","");
-        int price = Integer.parseInt(priceString); //DONE
+        String storeCode = tvStoreCode.getText().toString();
+        String trxNo = tvTrxNo.getText().toString();
+        String trxDate = etTrxDate.getText().toString();
+        String article = tvArticle.getText().toString();
+        int qty = 0;
+        float price = 0;
+        String notes = "X";
 
         @Override
         protected void onPreExecute() {
@@ -519,15 +546,15 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 if (conn == null) {
                     success = false;
                 } else {
-                    String query = "EXEC ANDROIDXP_ENJI.[dbo].[SP_UPDATE_SALES] '" + trxDate + "','" + storeCode + "','" + nikCode + "','" + uniqueID + "','" + discCode + "','" + price +"'";
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_DELETE_SALES_DTL '" + trxNo   + "','" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price + "','" + notes +"'";
                     Log.d("QUERY", query);
                     Statement stmt = conn.createStatement();
                     int status = stmt.executeUpdate(query);
                     if (status != 0) {
-                        msg = "Update Success";
+                        msg = "Input Success";
                         success = true;
                     } else {
-                        msg = "Update Failed";
+                        msg = "Input Failed";
                         success = false;
                     }
                 }
@@ -535,7 +562,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 e.printStackTrace();
                 Writer writer = new StringWriter();
                 e.printStackTrace(new PrintWriter(writer));
-                msg = writer.toString();
+                msg = "Gagal : Check Uniqueid & Disc !" ;//writer.toString();
                 success = false;
 
             }
@@ -545,7 +572,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         @Override
         protected void onPostExecute(String msg) {
             progress.dismiss();
-            Toast.makeText(BDetailActivity.this, msg + "", Toast.LENGTH_SHORT).show();
+            swipeRefreshLayout.setRefreshing(false);
             if (success == false) {
             } else {
                 try {
@@ -556,19 +583,20 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             }
 
         }
-    }*/
-
+    }
 
     public void setData(BDetailClass model){
         tvArticle.setText(model.getArticle());
         tvPrice.setText(model.getPrice());
         etQty.setText(model.getQty());
+        etNotes.setText(model.getNotes());
         supportInvalidateOptionsMenu();
     }
 
     public void setDataEmpty(){
         tvArticle.setText("");
         tvPrice.setText("");
+        etNotes.setText("");
         etQty.setText("");
         supportInvalidateOptionsMenu();
     }
@@ -577,6 +605,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         tvStoreCode.setText("");
         tvStoreName.setText("");
         etTrxDate.setText("");
+        etNotes.setText("");
         tvTrxNo.setText("");
         tvArticle.setText("");
         tvPrice.setText("");

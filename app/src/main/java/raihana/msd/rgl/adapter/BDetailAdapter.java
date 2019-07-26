@@ -49,35 +49,12 @@ public class BDetailAdapter extends RecyclerView.Adapter<BDetailAdapter.MyViewHo
         viewHolder.qty.setText(bDetailClass.getQty());
         viewHolder.price.setText(bDetailClass.getPrice());
         viewHolder.gross.setText(bDetailClass.getGross());
+        viewHolder.notes.setText(bDetailClass.getNotes());
         viewHolder.lay_item_b_detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mcontext instanceof BDetailActivity)
                     ((BDetailActivity) mcontext).setData(bDetailClass);
-            }
-        });
-        viewHolder.delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(mcontext)
-                        .setTitle("Confirm?")
-                        .setMessage("Apakah anda ingin menghapus no order ini?")
-                        .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                               /* BDetailActivity.InputNewSales inputNewSales = new BDetailActivity.InputNewSales();// this is the Asynctask, which is used to process in background to reduce load on app process
-                                inputNewSales.execute("");
-                                etTrxDate.setText(sharedPreference.getObjectData("today", String.class));
-                                setDataEmpty();*/
-                            }
-                        })
-                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
-                        .show();
             }
         });
     }
@@ -89,7 +66,7 @@ public class BDetailAdapter extends RecyclerView.Adapter<BDetailAdapter.MyViewHo
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         //8. fill in itemView
-        private TextView article, qty, price, gross, delete;
+        private TextView article, qty, price, gross, delete, notes;
         private LinearLayout lay_item_b_detail;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,7 +75,7 @@ public class BDetailAdapter extends RecyclerView.Adapter<BDetailAdapter.MyViewHo
             qty= itemView.findViewById(R.id.tv_qty);
             price = itemView.findViewById(R.id.tv_price);
             gross = itemView.findViewById(R.id.tv_gross);
-            delete = itemView.findViewById(R.id.tv_delete_item_b_detail);
+            notes = itemView.findViewById(R.id.tv_notes);
         }
     }
 }
