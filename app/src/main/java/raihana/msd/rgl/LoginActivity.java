@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,17 +63,22 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String r) {
-            /*progressBar.setVisibility(View.GONE);*/
-            // Toast.makeText(LoginActivity.this, r, Toast.LENGTH_SHORT).show();
+
             if (isSuccess) {
                 //ONPOSTEXECUTE, IF ISSUCCESS, SHOW TOAST MESSAGE
                 sharedPreference.storeData("username", usercode);
                 /*sharedPreference.storeData("USER_NAME", username);*/
-                Toast.makeText(LoginActivity.this, "Login Successfull", Toast.LENGTH_LONG).show();
-                //ONPOSTEXECUTE, IF ISSUCCESS, GO TO MAIN ACTIVITY
+                Toast toast = Toast.makeText(LoginActivity.this, r, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, -120);
+                toast.show();
+
                 Intent gotomain = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(gotomain);
-            }
+            } else {
+                Toast toast = Toast.makeText(LoginActivity.this, r, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, -120);
+                toast.show();
+             }
         }
 
 
@@ -87,17 +93,17 @@ public class LoginActivity extends AppCompatActivity {
                     if (conn == null) {
                         z = "Check Your Internet Access!";
                     } else {
-                        String query = "EXEC DB_A4A292_RGL.dbo.SP_GET_LOGIN '"+usercode+"','"+ password+"'";
+                        String query = "EXEC DB_A4A292_RGL.dbo.SP_GET_LOGIN '"+ usercode +"','"+ password +"'";
                         //String query = "EXEC ANDROIDXP_ENJI.dbo.SP_GET_LOGIN '"+usercode+"','"+ password+"'";
                         Statement stmt = conn.createStatement();
                         ResultSet rs = stmt.executeQuery(query);
                         if (rs.next()) {
-                            z = "Login successful";
+                            z = "Login Successful";
                             username = rs.getString("USER_ID");
                             isSuccess = true;
                             //con.close();
                         } else {
-                            z = "Invalid Credentials!";
+                            z = "Invalid Login !";
                             isSuccess = false;
                         }
                     }

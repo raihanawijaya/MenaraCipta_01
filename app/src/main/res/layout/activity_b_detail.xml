@@ -15,7 +15,7 @@
         android:layout_gravity="center_vertical"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:background="@color/colorBlue"
+        android:background="@color/colorBrown2"
         android:paddingLeft="8dp"
         android:paddingRight="10dp">
 
@@ -23,9 +23,9 @@
             android:layout_width="45dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
-            android:text="Store"
+            android:text="Str"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tv_store_code"
@@ -49,9 +49,9 @@
             android:layout_gravity="center"
             android:inputType="text"
             android:gravity="center"
-            android:text="AAA3"
+            android:text="BARCELONA STORE"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/iv_search_store"
@@ -66,7 +66,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_gravity="center_vertical"
-        android:background="@color/colorBlue"
+        android:background="@color/colorBrown2"
         android:layout_height="40dp"
         android:paddingLeft="8dp"
         android:orientation="horizontal"
@@ -78,11 +78,11 @@
             android:layout_gravity="center"
             android:text="No"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tv_trx_no"
-            android:layout_width="143dp"
+            android:layout_width="100dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
             android:background="@color/colorWhite"
@@ -90,7 +90,7 @@
             android:gravity="center"
             android:text="AAA3"
             android:textColor="@color/colorBlack"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:layout_width="30dp"
@@ -100,19 +100,19 @@
             android:gravity="center"
             android:text="Tgl"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/et_trx_date"
             android:background="@color/colorWhite"
             android:textColor="@color/colorBlack"
-            android:layout_width="100dp"
+            android:layout_width="120dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
             android:gravity="center"
             android:focusable="false"
             android:text="14 JUN 2018"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
 
 
     </LinearLayout>
@@ -121,7 +121,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:orientation="horizontal"
-        android:background="@color/colorBlue"
+        android:background="@color/colorBrown2"
         android:paddingLeft="8dp"
         android:paddingRight="10dp">
 
@@ -129,11 +129,11 @@
             android:layout_width="45dp"
             android:layout_height="30dp"
             android:layout_gravity="center"
-            android:text="Artcl"
+            android:text="Art"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
-        <TextView
+        <EditText
             android:id="@+id/tv_article"
             android:layout_width="150dp"
             android:layout_height="30dp"
@@ -143,7 +143,7 @@
             android:gravity="center"
             android:text=""
             android:textColor="@color/colorBlack"
-            android:textSize="12sp" />
+            android:textSize="16sp" />
         <ImageView
             android:id="@+id/iv_search_article"
             android:background="@color/colorWhite"
@@ -153,26 +153,24 @@
             android:layout_height="30dp" />
 
         <TextView
-            android:layout_width="30dp"
+            android:layout_width="20dp"
             android:layout_height="30dp"
-            android:layout_marginLeft="12dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Rp"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tv_price"
+        <EditText
+            android:id="@+id/et_price"
             android:background="@color/colorWhite"
             android:textColor="@color/colorBlack"
+            android:gravity="center"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:layout_gravity="center_vertical"
-            android:gravity="center"
-            android:focusable="false"
             android:text=""
-            android:textSize="12sp" />
+            android:textSize="16sp" />
 
 
     </LinearLayout>
@@ -182,7 +180,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingLeft="8dp"
-        android:background="@color/colorBlue"
+        android:background="@color/colorBrown2"
         android:orientation="horizontal"
         android:paddingTop="4dp">
 
@@ -192,7 +190,7 @@
             android:layout_gravity="center_vertical"
             android:text="Qty"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <EditText
             android:id="@+id/et_qty"
@@ -203,35 +201,42 @@
             android:textColor="@color/colorBlack"
             android:gravity="center"
             android:inputType="number"
-            android:textSize="12sp"
-            android:text="1" />
+            android:textSize="18sp"
+            android:text="" />
 
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical"
+            android:text="%"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_gravity="center_vertical"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:paddingLeft="8dp"
-        android:background="@color/colorBlue"
-        android:orientation="horizontal"
-        android:paddingTop="4dp">
-
+        <EditText
+            android:id="@+id/et_disc"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@color/colorWhite"
+            android:textColor="@color/colorBlack"
+            android:gravity="center"
+            android:inputType="number"
+            android:textSize="18sp"
+            android:text="0" />
         <TextView
             android:layout_width="45dp"
             android:layout_height="30dp"
-            android:layout_gravity="center_vertical"
-            android:text="Notes"
+            android:gravity="center"
+            android:text="Note"
             android:textColor="@color/colorBlack"
-            android:textSize="16sp" />
-
+            android:textSize="12sp" />
         <EditText
             android:id="@+id/et_notes"
             android:paddingLeft="8dp"
-            android:layout_width="280dp"
+            android:layout_width="140dp"
             android:layout_height="30dp"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical"
             android:background="@color/colorWhite"
             android:textColor="@color/colorBlack"
             android:inputType="text"
@@ -240,27 +245,32 @@
 
     </LinearLayout>
 
+
+
     <LinearLayout
         android:layout_gravity="center_vertical"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:paddingLeft="8dp"
-        android:background="@color/colorBlue"
+        android:weightSum="2"
+        android:background="@color/colorBrown3"
         android:orientation="horizontal"
         android:paddingTop="4dp">
 
         <Button
             android:id="@+id/btn_delete_row"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textSize="12dp"
+            android:layout_weight="1"
             android:text="CANCEL"/>
 
         <Button
             android:id="@+id/btn_save"
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textSize="12dp"
+            android:layout_weight="1"
             android:text="SUBMIT"/>
 
     </LinearLayout>

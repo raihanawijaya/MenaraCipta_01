@@ -10,7 +10,7 @@
     android:paddingBottom="0.5dp">
 
     <LinearLayout
-        android:id="@+id/lay_item_b"
+        android:id="@+id/lay_item_h"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/colorBrown5">

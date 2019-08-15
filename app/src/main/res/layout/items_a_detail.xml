@@ -6,9 +6,9 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingTop="2dp"
-    android:paddingBottom="0.5dp"
-    android:background="@color/bgPrimary">
+    android:paddingTop="1dp"
+    android:paddingBottom="1dp"
+    android:background="@color/colorBlack">
 
     <LinearLayout
         android:layout_width="match_parent"

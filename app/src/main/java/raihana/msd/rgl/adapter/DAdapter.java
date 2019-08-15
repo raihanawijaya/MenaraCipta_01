@@ -18,14 +18,14 @@ import raihana.msd.rgl.R;
 import raihana.msd.rgl.model.EightColumnClass;
 
 //1. RV Adapter //3.Implement method
-public class AAdapter extends RecyclerView.Adapter<AAdapter.MyViewHolder> {
+public class DAdapter extends RecyclerView.Adapter<DAdapter.MyViewHolder> {
 
     //4. Declaration
     Context mcontext;
     List<EightColumnClass> mData;
 
     //5.Constructor
-    public AAdapter(Context mcontext) {
+    public DAdapter(Context mcontext) {
         this.mcontext = mcontext;
         mData = new ArrayList<>();
     }
@@ -39,7 +39,7 @@ public class AAdapter extends RecyclerView.Adapter<AAdapter.MyViewHolder> {
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         //6. Make return MyViewHoler(view = layout inflatter)
         View v;
-        v = LayoutInflater.from(mcontext).inflate(R.layout.items_a,viewGroup,false);
+        v = LayoutInflater.from(mcontext).inflate(R.layout.items_d  ,viewGroup,false);
         MyViewHolder vHolder = new MyViewHolder(v);
         return vHolder;
     }
@@ -53,37 +53,17 @@ public class AAdapter extends RecyclerView.Adapter<AAdapter.MyViewHolder> {
         viewHolder.tvColumn_1.setText(mData.get(i).getColumn_1());
         viewHolder.tvColumn_2.setText(mData.get(i).getColumn_2());
         viewHolder.tvColumn_3.setText(mData.get(i).getColumn_3());
+        viewHolder.tvColumn_4.setText(mData.get(i).getColumn_4());
 
-        Flag=  Integer.parseInt(mData.get(i).getColumn_8());
-        if (Flag == 3) {
-            viewHolder.tvColumn_1.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_1.setTypeface(null, Typeface.NORMAL);
-            viewHolder.tvColumn_2.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_2.setTypeface(null, Typeface.NORMAL);
-            viewHolder.tvColumn_3.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_3.setTypeface(null, Typeface.NORMAL);
-            viewHolder.lay_item_a.setBackgroundColor(Color.parseColor("#ffb5b0"));
-        };
-        if (Flag == 2) {
-            viewHolder.tvColumn_1.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_1.setTypeface(null, Typeface.BOLD);
-            viewHolder.tvColumn_2.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_2.setTypeface(null, Typeface.BOLD);
-            viewHolder.tvColumn_3.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_3.setTypeface(null, Typeface.BOLD);
-
-            viewHolder.lay_item_a.setBackgroundColor(Color.parseColor("#e3c1c1"));
-        };
-        if (Flag == 1) {
-
-            viewHolder.tvColumn_1.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_1.setTypeface(null, Typeface.NORMAL);
-            viewHolder.tvColumn_2.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_2.setTypeface(null, Typeface.NORMAL);
-            viewHolder.tvColumn_3.setTextColor(Color.BLACK);
-            viewHolder.tvColumn_3.setTypeface(null, Typeface.NORMAL);
-            viewHolder.lay_item_a.setBackgroundColor(Color.parseColor("#fff7e0"));
-        };
+        viewHolder.tvColumn_1.setTextColor(Color.BLACK);
+        viewHolder.tvColumn_1.setTypeface(null, Typeface.NORMAL);
+        viewHolder.tvColumn_2.setTextColor(Color.BLACK);
+        viewHolder.tvColumn_2.setTypeface(null, Typeface.NORMAL);
+        viewHolder.tvColumn_3.setTextColor(Color.BLACK);
+        viewHolder.tvColumn_3.setTypeface(null, Typeface.NORMAL);
+        viewHolder.tvColumn_4.setTextColor(Color.BLACK);
+        viewHolder.tvColumn_4.setTypeface(null, Typeface.NORMAL);
+        viewHolder.lay_item_d.setBackgroundColor(Color.parseColor("#ffb5b0"));
         /*
         viewHolder.lay_item_b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,14 +84,15 @@ public class AAdapter extends RecyclerView.Adapter<AAdapter.MyViewHolder> {
     //2. ViewHolder -> Implement method
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         //8. fill in itemView
-        private LinearLayout lay_item_a;
-        private TextView tvColumn_1, tvColumn_2, tvColumn_3;
+        private LinearLayout lay_item_d;
+        private TextView tvColumn_1, tvColumn_2, tvColumn_3, tvColumn_4;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            lay_item_a = itemView.findViewById(R.id.lay_item_a);
+            lay_item_d = itemView.findViewById(R.id.lay_item_d);
             tvColumn_1 = itemView.findViewById(R.id.tv_column_1);
             tvColumn_2 = itemView.findViewById(R.id.tv_column_2);
             tvColumn_3= itemView.findViewById(R.id.tv_column_3);
+            tvColumn_4= itemView.findViewById(R.id.tv_column_4);
         }
     }
 

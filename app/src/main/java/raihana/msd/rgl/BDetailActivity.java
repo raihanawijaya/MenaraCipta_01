@@ -29,25 +29,24 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import raihana.msd.rgl.adapter.BDetailAdapter;
 import raihana.msd.rgl.connection.ConnectionClass;
-import raihana.msd.rgl.model.BDetailClass;
+import raihana.msd.rgl.model.EightColumnClass;
 import raihana.msd.rgl.utils.SharedPreference;
 
 public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
-    private EditText etTrxDate, etNotes, etQty;
+    private EditText etTrxDate, etNotes, etQty,etPrice,etDisc;
     private ImageView ivDelete, ivSearchArticle, ivSearchStore, ivAdd, ivReset;
-    private TextView tvStoreCode, tvStoreName, tvTrxNo, tvPrice, tvArticle, tvUsername;
-    private String storeCode,storeName, onDate, trxNo, username, price;
+    private TextView tvStoreCode, tvStoreName, tvTrxNo, tvArticle, tvUsername;
+    private String storeCode,storeName, onDate, trxNo, username,price;
     private Button btn_save, btn_delete_item;
     private boolean success = false;
     //FILE ETC
     private RecyclerView myRecyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private List<BDetailClass> list_detail_B = new ArrayList<>();
+    private List<EightColumnClass> list_detail_B = new ArrayList<>();
     private ConnectionClass connectionClass;
     private BDetailAdapter b_detail_adapter;
     private SharedPreference sharedPreference;
@@ -73,7 +72,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         myRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         myRecyclerView.setLayoutManager(mLayoutManager);
-        list_detail_B = new ArrayList<BDetailClass>();
+        list_detail_B = new ArrayList<EightColumnClass>();
         //SHARED PREFERENCE / SERIALIZABLE EXTRA
         Context mcontext;
         sharedPreference = new SharedPreference(this);
@@ -95,7 +94,9 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         tvStoreCode = findViewById(R.id.tv_store_code);
         tvStoreName = findViewById(R.id.tv_store_name);
         tvTrxNo = findViewById(R.id.tv_trx_no);
-        tvPrice = findViewById(R.id.tv_price);
+        etPrice = findViewById(R.id.et_price);
+        etDisc   = findViewById(R.id.et_disc);
+
         tvArticle = findViewById(R.id.tv_article);
         tvStoreCode.setText(storeCode);
         tvStoreName.setText(storeName);
@@ -111,6 +112,8 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         btn_save = findViewById(R.id.btn_save);
         btn_delete_item = findViewById(R.id.btn_delete_row);
         //SWIPE
+
+        tvStoreName.requestFocus();
         swipeRefreshLayout = findViewById(R.id.swipe);
         swipeRefreshLayout.setOnRefreshListener(this);
         final SyncData orderData = new SyncData();
@@ -121,39 +124,16 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             public void onClick(View view) {
                 new AlertDialog.Builder(BDetailActivity.this)
                         .setTitle("Confirm?")
-                        .setMessage("Apakah anda ingin membuat order baru?")
+                        .setMessage("Apakah anda ingin Membuat Order Baru?")
                         .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                InputNewSales inputNewSales = new InputNewSales();// this is the Asynctask, which is used to process in background to reduce load on app process
-                                inputNewSales.execute("");
+                                GetNewSalesNo GetNewSalesNo = new GetNewSalesNo();// this is the Asynctask, which is used to process in background to reduce load on app process
+                                GetNewSalesNo.execute("");
                                 etTrxDate.setText(sharedPreference.getObjectData("today", String.class));
                                 setDataEmpty();
-                            }
-                        })
-                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
-                        .show();
-            }
-        });
-
-        ivDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(BDetailActivity.this)
-                        .setTitle("Confirm?")
-                        .setMessage("Apakah anda ingin menghapus no order ini?")
-                        .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                DeleteData deleteData = new DeleteData();// this is the Asynctask, which is used to process in background to reduce load on app process
-                                deleteData.execute("");
-                                sync();
-                                setDataEmptyAll();
+                             //   Intent gotosearch = new Intent(BDetailActivity.this,SearchArticleActivity.class);
+                             //   startActivityForResult(gotosearch,124);
 
                             }
                         })
@@ -167,38 +147,64 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             }
         });
 
-        btn_delete_item.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                new AlertDialog.Builder(BDetailActivity.this)
-                        .setTitle("Confirm?")
-                        .setMessage("Apakah anda ingin cancel artikel ini?")
-                        .setPositiveButton("Ya, cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                DeleteDataItem deleteData = new DeleteDataItem();// this is the Asynctask, which is used to process in background to reduce load on app process
-                                deleteData.execute("");
-                                sync();
-                            }
-                        })
-                        .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                dialogInterface.dismiss();
-                            }
-                        })
-                        .show();
-            }
-        });
+            ivDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new AlertDialog.Builder(BDetailActivity.this)
+                            .setTitle("Confirm?")
+                            .setMessage("Apakah anda ingin menghapus no order ini?")
+                            .setPositiveButton("Hapus", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    DeleteData deleteData = new DeleteData();// this is the Asynctask, which is used to process in background to reduce load on app process
+                                    deleteData.execute("");
+                                    sync();
+                                    setDataEmptyAll();
 
-        btn_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                InputData inputData = new InputData();// this is the Asynctask, which is used to process in background to reduce load on app process
-                inputData.execute("");
-                sync();
-            }
-        });
+                                }
+                            })
+                            .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .show();
+                }
+            });
+
+            btn_delete_item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new AlertDialog.Builder(BDetailActivity.this)
+                            .setTitle("Confirm?")
+                            .setMessage("Apakah anda ingin CANCEL artikel ini?")
+                            .setPositiveButton("Ya, cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    DeleteDataItem deleteData = new DeleteDataItem();// this is the Asynctask, which is used to process in background to reduce load on app process
+                                    deleteData.execute("");
+                                    sync();
+                                }
+                            })
+                            .setNegativeButton("Batal", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            })
+                            .show();
+                }
+            });
+
+            btn_save.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    InputData inputData = new InputData();// this is the Asynctask, which is used to process in background to reduce load on app process
+                    inputData.execute("");
+                    sync();
+                }
+            });
 
         ivReset.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,11 +242,18 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 String searchStoreName = data.getStringExtra("searchStoreName");
                 tvStoreCode.setText(searchStoreCode);
                 tvStoreName.setText(searchStoreName);
+                etTrxDate.setText(sharedPreference.getObjectData("today", String.class));
+                GetNewSalesNo GetNewSalesNo = new GetNewSalesNo();// this is the Asynctask, which is used to process in background to reduce load on app process
+                GetNewSalesNo.execute("");
+                tvArticle.requestFocus();
+
             } else if(requestCode == 124){
                 String searchArticle = data.getStringExtra("searchArticle");
                 String searchPrice = data.getStringExtra("searchPrice");
                 tvArticle.setText(searchArticle);
-                tvPrice.setText(searchPrice);
+                etPrice.setText(searchPrice);
+                etDisc.setText("0");
+                etQty.requestFocus();
             }
         }
     }
@@ -261,7 +274,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
 
     }
 
-    private class InputNewSales extends AsyncTask<String, String, String> {
+    private class GetNewSalesNo extends AsyncTask<String, String, String> {
         String msg = "Internet/DB_Credentials/Windows_FireWall_TurnOn Error, See Android Monitor in the bottom For details";
         ProgressDialog progress;
 
@@ -319,6 +332,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         protected void onPostExecute(String msg) {
             progress.dismiss();
             if (success == false) {
+                // -->  Show Message Here...
             } else {
                 try {
                     trxNo = trxNoNew;
@@ -348,7 +362,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 if (conn == null) {
                     success = false;
                 } else {
-                    String query = "EXEC DB_A4A292_RGL.dbo.SP_TRX_USER_ID_STORE '" + username + "','" + trxCode +"'";
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_TRX_SALES_USER_ID_STORE '" + username + "','" + trxCode +"'";
                     Log.d("QUERY", query);
                     Statement stmt = conn.createStatement();
                     ResultSet rs = stmt.executeQuery(query);
@@ -357,7 +371,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                         while (rs.next()) {
                             try {
                                 // kalau ada data masukkan ke list
-                                list_detail_B.add(new BDetailClass(rs.getString("ARTICLE"),rs.getString("QTY"),rs.getString("PRICE"),rs.getString("GROSS"),rs.getString("NOTES")));
+                                list_detail_B.add(new EightColumnClass(rs.getString("COLUMN_1"),rs.getString("COLUMN_2"),rs.getString("COLUMN_3"),rs.getString("COLUMN_4"),rs.getString("COLUMN_5"),rs.getString("COLUMN_6"),rs.getString("COLUMN_7"),rs.getString("COLUMN_8")));
                             } catch (Exception ex) {
                                 ex.printStackTrace();
                             }
@@ -384,6 +398,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         @Override
         protected void onPostExecute(String msg) {
             if (success == false) {
+                // - show Error message here...
             } else {
                 try {
                     b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
@@ -401,10 +416,16 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         String trxNo = tvTrxNo.getText().toString();
         String trxDate = etTrxDate.getText().toString();
         String article = tvArticle.getText().toString();
-        String priceString = tvPrice.getText().toString().replace(",","");;
+        String priceString = etPrice.getText().toString().replace(",","");;
+        String discString = etDisc.getText().toString();
+
         String qtyString = etQty.getText().toString();
+
         int qty = Integer.parseInt(qtyString); //DONE
+
         float price = Float.parseFloat(priceString); //DONE
+        float disc = Float.parseFloat(discString); //DONE
+
         String notes = etNotes.getText().toString();
 
         @Override
@@ -420,7 +441,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 if (conn == null) {
                     success = false;
                 } else {
-                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxNo  + "','" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price + "','" + notes +"'";
+                    String query = "EXEC DB_A4A292_RGL.dbo.SP_INSERT_SALES '" + trxNo  + "','" + trxDate + "','" + storeCode + "','" + username + "','" + article + "','" + qty + "','" + price + "','" + notes +"','" + disc + "'";
                     Log.d("QUERY", query);
                     Statement stmt = conn.createStatement();
                     int status = stmt.executeUpdate(query);
@@ -428,7 +449,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                         msg = "Input Success";
                         success = true;
                     } else {
-                        msg = "Input Failed";
+                        msg = "Input Sales Failed";
                         success = false;
                     }
                 }
@@ -436,7 +457,8 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
                 e.printStackTrace();
                 Writer writer = new StringWriter();
                 e.printStackTrace(new PrintWriter(writer));
-                msg = "Gagal : Check Uniqueid & Disc !" ;//writer.toString();
+                msg = "Failed : Check Stock !" ;//writer.toString();
+              //  msg = writer.toString();
                 success = false;
 
             }
@@ -448,6 +470,10 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             progress.dismiss();
             swipeRefreshLayout.setRefreshing(false);
             if (success == false) {
+                Toast toast = Toast.makeText(BDetailActivity.this, msg, Toast.LENGTH_SHORT);
+                toast.setGravity(Gravity.CENTER, 0, -120);
+                toast.show();
+
             } else {
                 try {
                     b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
@@ -511,6 +537,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             progress.dismiss();
             swipeRefreshLayout.setRefreshing(false);
             if (success == false) {
+                // Show error message  here ....
             } else {
                 try {
                     b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
@@ -574,6 +601,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
             progress.dismiss();
             swipeRefreshLayout.setRefreshing(false);
             if (success == false) {
+                // Show Error Message here ...
             } else {
                 try {
                     b_detail_adapter = new BDetailAdapter(list_detail_B, BDetailActivity.this);
@@ -585,19 +613,21 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         }
     }
 
-    public void setData(BDetailClass model){
-        tvArticle.setText(model.getArticle());
-        tvPrice.setText(model.getPrice());
-        etQty.setText(model.getQty());
-        etNotes.setText(model.getNotes());
+    public void setData(EightColumnClass model){
+        tvArticle.setText(model.getColumn_1());
+        etPrice.setText(model.getColumn_3());
+        etQty.setText(model.getColumn_2());
+        etNotes.setText(model.getColumn_5());
         supportInvalidateOptionsMenu();
     }
 
     public void setDataEmpty(){
         tvArticle.setText("");
-        tvPrice.setText("");
+        etPrice.setText("");
         etNotes.setText("");
-        etQty.setText("");
+        etQty.setText("1");
+        etDisc.setText("0");
+
         supportInvalidateOptionsMenu();
     }
 
@@ -608,7 +638,7 @@ public class BDetailActivity extends AppCompatActivity implements SwipeRefreshLa
         etNotes.setText("");
         tvTrxNo.setText("");
         tvArticle.setText("");
-        tvPrice.setText("");
+        etPrice.setText("");
         etQty.setText("");
         supportInvalidateOptionsMenu();
     }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_item_c"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorGray"
@@ -10,13 +11,12 @@
     android:paddingBottom="0.5dp">
 
     <LinearLayout
-        android:id="@+id/lay_item_b"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:background="@color/colorBrown5">
 
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="8dp"
@@ -37,13 +37,6 @@
                 android:text="BABY SHOP"
                 android:textColor="@color/font_item" />
 
-            <TextView
-                android:id="@+id/tv_column_8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:text="OPEN ORDER"
-                android:textColor="@color/colorAccent" />
         </LinearLayout>
 
 
@@ -58,49 +51,22 @@
             <TextView
                 android:id="@+id/tv_column_3"
                 android:layout_width="match_parent"
-                android:gravity="right"
                 android:layout_height="wrap_content"
                 android:text="204"
+                android:gravity="right"
                 android:textColor="@color/font_item"/>
 
             <TextView
                 android:id="@+id/tv_column_4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
                 android:text="29,890,215"
-                android:textColor="@color/font_item"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="8dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tv_column_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:gravity="right"
-                android:text="008"
-                android:textAlignment="gravity"
                 android:textColor="@color/font_item" />
-
-
-            <TextView
-                android:id="@+id/tv_column_6"
-                android:visibility="invisible"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="210"
-                android:textAlignment="gravity"
-                android:textColor="@color/font_item" />
-
 
         </LinearLayout>
+
+
 
 
     </LinearLayout>

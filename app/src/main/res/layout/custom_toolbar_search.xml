@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:paddingLeft="2dp"
-    android:background="@color/bluePrimary"
+    android:background="@color/colorBrown2"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <LinearLayout

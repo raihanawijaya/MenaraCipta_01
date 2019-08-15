@@ -15,7 +15,7 @@
         android:id="@+id/linlay_date"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:background="@color/colorBlue"
+        android:background="@color/colorBrown2"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="16dp"
@@ -24,11 +24,11 @@
 
         <EditText
             android:id="@+id/et_date_1"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="22dp"
             android:layout_weight="1"
-            android:background="@color/colorWhite"
+            android:background="@color/colorBrown2"
             android:textAlignment="center"
             android:focusable="false"
             android:focusableInTouchMode="false"/>
@@ -39,17 +39,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/monsemibold"
-            android:text="sampai"
+            android:text="---"
             android:textAlignment="center"
-            android:textColor="@color/colorWhite" />
+            android:textColor="@color/colorBlack" />
 
         <EditText
             android:id="@+id/et_date_2"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:layout_width="fill_parent"
             android:layout_height="22dp"
             android:layout_weight="1"
-            android:background="@color/colorWhite"
+            android:background="@color/colorBrown2"
             android:textAlignment="center"
             android:focusable="false"
             android:focusableInTouchMode="false"/>
@@ -62,8 +62,8 @@
         android:layout_height="45dp"
         app:tabMode="scrollable"
         app:tabGravity="fill"
-        app:tabSelectedTextColor="@color/bluePrimary"
-        android:background="@color/colorAzure"
+        app:tabSelectedTextColor="@color/colorBlack"
+        android:background="@color/colorBrown3"
         app:tabIndicatorColor="@color/colorBlue">
     </android.support.design.widget.TabLayout>
 

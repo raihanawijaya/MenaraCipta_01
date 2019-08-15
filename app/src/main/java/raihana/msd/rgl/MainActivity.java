@@ -17,6 +17,12 @@ import raihana.msd.rgl.adapter.ViewPagerAdapter;
 import raihana.msd.rgl.fragment.AFragment;
 import raihana.msd.rgl.fragment.BFragment;
 import raihana.msd.rgl.fragment.BaseFragment;
+import raihana.msd.rgl.fragment.CFragment;
+import raihana.msd.rgl.fragment.DFragment;
+import raihana.msd.rgl.fragment.EFragment;
+import raihana.msd.rgl.fragment.FFragment;
+import raihana.msd.rgl.fragment.GFragment;
+import raihana.msd.rgl.fragment.HFragment;
 import raihana.msd.rgl.utils.DateUtils;
 import raihana.msd.rgl.utils.SharedPreference;
 
@@ -32,11 +38,17 @@ public class MainActivity extends AppCompatActivity {
     private int viewPagerPosition;
     private AFragment aFragment = new AFragment();
     private BFragment bFragment = new BFragment();
+    private CFragment cFragment = new CFragment();
+    private DFragment dFragment = new DFragment();
+    private EFragment eFragment = new EFragment();
+    private FFragment fFragment = new FFragment();
+    private GFragment gFragment = new GFragment();
+    private HFragment hFragment = new HFragment();
+
 
     public String getDate_out1() {
         return date_out1;
     }
-
     public String getDate_out2() {
         return date_out2;
     }
@@ -175,8 +187,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void initTabs() {
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPagerAdapter.addFragment(bFragment, "DAILY SALES");
-        viewPagerAdapter.addFragment(aFragment, "DAILY STORE");
+        viewPagerAdapter.addFragment(aFragment, "DAILY SALES");
+        viewPagerAdapter.addFragment(bFragment, "DAILY STORE");
+        viewPagerAdapter.addFragment(cFragment, "BEST ARTICLE");
+        viewPagerAdapter.addFragment(dFragment, "BEST STORE");
+        viewPagerAdapter.addFragment(eFragment, "OPEN ORDER");
+        viewPagerAdapter.addFragment(fFragment, "ON PROGRESS");
+        viewPagerAdapter.addFragment(gFragment, "ON DELIVERY");
+        viewPagerAdapter.addFragment(hFragment, "COMPLETED");
+
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }

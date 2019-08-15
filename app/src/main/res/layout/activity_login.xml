@@ -18,7 +18,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/monreg"
-        android:text="RGL Mobile System"
+        android:text="PAKIS Mobile"
         android:textAlignment="center"
         android:textColor="@color/colorWhite"
         android:textSize="28dp"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:text="21.07.19"
+        android:text="14.08.19"
         android:fontFamily="@font/monsemibold"
         android:textColor="@color/colorWhite"
         android:textSize="18dp"
@@ -80,6 +80,7 @@
                 android:background="@drawable/bg_input_edit"
                 android:fontFamily="@font/monreg"
                 android:lines="1"
+                android:inputType="textCapCharacters"
                 android:paddingLeft="12dp"
                 android:textColor="@color/colorBlack" />
         </LinearLayout>
@@ -108,7 +109,7 @@
                 android:layout_height="35dp"
                 android:background="@drawable/bg_input_edit"
                 android:fontFamily="@font/monreg"
-                android:inputType="textPassword"
+                android:inputType="textCapCharacters"
                 android:lines="1"
                 android:paddingLeft="12dp"
                 android:textColor="@color/colorBlack" />

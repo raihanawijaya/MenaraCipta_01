@@ -10,8 +10,21 @@
     <color name="colorBlack">#000000</color>
     <color name="colorGray">#b2adad</color>
 
+
+    //brown
+    <color name="colorBrown1">#fcba03</color>
+    <color name="colorBrown2">#fadc89</color>
+    <color name="colorBrown3">#f7e2a6</color>
+    <color name="colorBrown4">#fff0c4</color>
+    <color name="colorBrown5">#fff7e0</color>
+
+
     //GREEN
     <color name="colorGreen">#abf4d2</color>
+    <color name="colorGreen1">#abf4d2</color>
+    <color name="colorGreen2">#abf4d2</color>
+    <color name="colorGreen3">#abf4d2</color>
+    <color name="colorGreen4">#abf4d2</color>
     <color name="colorLightBlue">#52cec6</color>
     <color name="colorMadun">#4dd1a9</color>
 

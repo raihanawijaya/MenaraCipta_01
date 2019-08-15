@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtils {
     public static final String SDF_FORMAT1 = "dd/MM/yyyy";
@@ -32,13 +33,13 @@ public class DateUtils {
     }
 
     public String reFormatDate(String date, String styleInput, String styleOutput) throws ParseException {
-        SimpleDateFormat sdf = new SimpleDateFormat(styleInput);
+        SimpleDateFormat sdf = new SimpleDateFormat(styleInput, Locale.US);
         Date firstDate = sdf.parse(date);
-        return new SimpleDateFormat(styleOutput).format(firstDate);
+        return new SimpleDateFormat(styleOutput, Locale.US).format(firstDate);
     }
 
     public String formatCurrentDate(String style){
-        SimpleDateFormat sdf = new SimpleDateFormat(style);
+        SimpleDateFormat sdf = new SimpleDateFormat(style, Locale.US);
         return sdf.format(getCurrentDate());
     }
 }

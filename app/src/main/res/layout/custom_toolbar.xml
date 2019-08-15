@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:paddingLeft="2dp"
-    android:background="@color/bluePrimary"
+    android:background="@color/colorBrown1"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <LinearLayout
@@ -21,23 +21,14 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:textColor="@color/colorWhite"
-                android:fontFamily="@font/monbold"
-                android:textSize="14sp"
-                android:text="RGL :" />
-
-            <TextView
                 android:id="@+id/tv_store_code"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:fontFamily="@font/monsemibold"
-                android:text="471"
-                android:textColor="@color/colorWhite"
-                android:textSize="14sp" />
+                android:text="User Name"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp" />
 
         </LinearLayout>
 

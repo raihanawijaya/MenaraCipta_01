@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorWhite">
+        android:background="@color/colorBrown5">
 
         <LinearLayout
             android:orientation="vertical"
@@ -24,12 +24,14 @@
 
             <TextView
                 android:id="@+id/tv_article"
+                android:textColor="@color/colorBlack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="AAAAAAA"/>
 
             <TextView
                 android:id="@+id/tv_desc"
+                android:textColor="@color/colorBlack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="DESC DESC DESC DESC"/>
@@ -37,6 +39,7 @@
 
             <TextView
                 android:id="@+id/tv_brand"
+                android:textColor="@color/colorBlack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="FOREVER 21"/>
@@ -58,6 +61,7 @@
             <TextView
                 android:id="@+id/tv_price"
                 android:textStyle="bold"
+                android:textColor="@color/colorBlack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -80,6 +84,7 @@
 
             <TextView
                 android:id="@+id/tv_stock"
+                android:textColor="@color/colorBlack"
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

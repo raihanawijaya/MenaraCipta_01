@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -6,34 +5,16 @@
     android:layout_height="match_parent"
     android:background="@color/bg_item_2">
 
-    <LinearLayout
-        android:id="@+id/lay_b_add"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal"
-        android:background="@color/colorBrown1">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ADD NEW ORDER"
-            android:fontFamily="@font/monsemibold"
-            android:layout_gravity="center"
-            android:textAlignment="center"/>
-
-    </LinearLayout>
-
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_fragment_b"
+            android:id="@+id/rv_fragment_g"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            tools:listitem="@layout/items_b">
-
+            tools:listitem="@layout/items_g">
         </android.support.v7.widget.RecyclerView>
 
 
