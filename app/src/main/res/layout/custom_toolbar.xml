@@ -4,38 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:orientation="vertical"
+    android:layout_marginTop="@dimen/_2sdp"
+    android:layout_marginLeft="@dimen/_2sdp"
+    android:layout_marginRight="@dimen/_2sdp"
     android:layout_width="match_parent"
-    android:layout_height="45dp"
+    android:layout_height="@dimen/_22sdp"
     android:paddingLeft="2dp"
-    android:background="@color/colorBrown1"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+    android:background="@drawable/bg_for_toolbar_1">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20sdp"
+        android:orientation="horizontal">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_company_name"
+            android:layout_gravity="center_vertical"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:gravity="center_vertical"
+            android:fontFamily="@font/monsemibold"
+            android:text="Menara Cipta Profilindo"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/_10sdp" />
 
             <TextView
-                android:id="@+id/tv_store_code"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:id="@+id/tv_user_code"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_20sdp"
                 android:gravity="center_vertical"
                 android:fontFamily="@font/monsemibold"
-                android:text="User Name"
-                android:textColor="@color/colorBlack"
-                android:textSize="20sp" />
+                android:text="SPT"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
 
-        </LinearLayout>
 
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/monsemibold"
+                android:text="Sapta Wijaya"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/monsemibold"
+                android:text=""
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
+
+            <EditText
+                android:id="@+id/et_date"
+                android:gravity="center"
+                android:text="12-Jul-2020"
+                android:background="@null"
+                android:textSize="@dimen/_10sdp"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/colorWhite"
+                android:layout_height="wrap_content"
+                android:focusable="false"/>
 
     </LinearLayout>
 
 
+</LinearLayout>
+
+
+
+
+
+    </LinearLayout>
 
 
 </android.support.v7.widget.Toolbar>

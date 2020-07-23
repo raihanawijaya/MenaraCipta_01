@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_30sdp"
+    android:layout_marginRight="@dimen/_2sdp"
+    android:layout_marginLeft="@dimen/_2sdp">
+
+    <LinearLayout
+        android:id="@+id/lay_item_a"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/_2sdp"
+        android:layout_marginRight="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorGray"
+        android:orientation="vertical">
+              <TextView
+                android:id="@+id/tv_column_1"
+                android:gravity="center"
+                android:textSize="@dimen/_12sdp"
+                android:background="@drawable/bg_layout_white_01"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_28sdp"
+                android:text="BCA ENJI"/>
+
+    </LinearLayout>
+</LinearLayout>

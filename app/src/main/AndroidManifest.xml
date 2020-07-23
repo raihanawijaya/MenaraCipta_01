@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="raihana.msd.rgl">
+    package="raihana.msd.mcp">
 
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchStoreActivity"></activity>
-        <activity android:name=".SearchArticleActivity" />
-        <activity android:name=".BDetailSearchActivity" />
-        <activity android:name=".BDetailActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".SplashActivity">
+        <activity android:name="raihana.msd.mcp.MainActivity" android:screenOrientation="landscape"/>
+        <activity android:name="raihana.msd.mcp.WorkOrderProcessActivity" android:screenOrientation="landscape"/>
+        <activity android:name="raihana.msd.mcp.WorkOrderForMachineCodeActivity" android:screenOrientation="landscape"/>
+        <activity android:name="raihana.msd.mcp.WorkOrderProcessLotIdPrintSolvedTroubleActivity" android:screenOrientation="landscape" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="raihana.msd.mcp.WorkOrderProcessLotIdPrintTroubleActivity" android:screenOrientation="landscape" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="raihana.msd.mcp.WorkOrderProcessLotIdRollIdActivity" android:screenOrientation="landscape" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="raihana.msd.mcp.WorkOrderProcessLotIdActivity" android:screenOrientation="landscape" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="raihana.msd.mcp.WorkOrderProcessLotIdPrintJobActivity" android:screenOrientation="landscape" android:windowSoftInputMode="stateHidden"/>
+        <activity android:name="raihana.msd.mcp.LoginActivity" android:screenOrientation="landscape"/>
+        <activity android:name="raihana.msd.mcp.SplashActivity" android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

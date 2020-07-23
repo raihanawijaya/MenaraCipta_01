@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:padding="@dimen/_2sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/_4sdp"
+        android:background="@drawable/bg_layout_white_03"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="@dimen/_30sdp">
+
+            <TextView
+                android:id="@+id/tv_print_report"
+                android:textSize="@dimen/_12sdp"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/_3sdp"
+                android:text=">> Print Report ?"
+                android:layout_height="match_parent"></TextView>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:orientation="horizontal"
+            android:layout_height="@dimen/_30sdp">
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="@dimen/_80sdp"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:text="Rp Cashout : "
+                android:layout_height="match_parent"></TextView>
+
+            <EditText
+                android:id="@+id/et_cash_out"
+                android:inputType="number"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_14sdp"
+                android:background="@drawable/bg_layout_white"
+                android:textColor="@color/colorBlack"
+                android:layout_width="@dimen/_125sdp"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/_3sdp"
+                android:textAlignment="center"
+                android:text=""
+                android:layout_height="match_parent"></EditText>
+            <ImageView
+                android:id="@+id/iv_save"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:paddingLeft="0dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_save" />
+            <ImageView
+                android:id="@+id/iv_print"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:paddingLeft="0dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_local_printshop_black_24dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/_2sdp"
+            android:orientation="horizontal"
+            android:layout_height="@dimen/_30sdp">
+
+            <TextView
+                android:textColor="@color/colorBlack"
+                android:layout_width="@dimen/_80sdp"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/_10sdp"
+                android:paddingLeft="@dimen/_5sdp"
+                android:text="Keterangan : "
+                android:layout_height="match_parent"></TextView>
+
+            <EditText
+                android:id="@+id/et_keterangan"
+                android:padding="@dimen/_5sdp"
+                android:textSize="@dimen/_14sdp"
+                android:background="@drawable/bg_layout_white"
+                android:layout_width="@dimen/_160sdp"
+                android:textColor="@color/colorBlack"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/_3sdp"
+                android:text=""
+                android:layout_height="match_parent"></EditText>
+
+            <ImageView
+                android:id="@+id/iv_delete"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_24sdp"
+                android:paddingLeft="0dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_del" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_fragment"
+                android:padding="@dimen/_2sdp"
+                android:background="@drawable/bg_layout_white_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                tools:listitem="@layout/items_j">
+            </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+
+</LinearLayout>

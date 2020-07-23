@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_120sdp"
+    android:paddingLeft="0dp"
+    android:layout_margin="@dimen/_2sdp"
+    android:background="@drawable/bg_input_dua"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+       <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp">
+
+        <TextView
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="4dp"
+            android:text="No Faktur"
+            android:paddingLeft="@dimen/_10sdp"
+            android:textColor="@color/font_item" />
+        <EditText
+            android:id="@+id/tv_faktur_no"
+            android:textSize="@dimen/_12sdp"
+            android:text=""
+            android:focusable="false"
+            android:layout_width="@dimen/_160sdp"
+            android:gravity="center"
+            android:layout_height="@dimen/_28sdp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_layout_white"
+            android:padding="1dp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:textColor="@color/font_item" />
+
+        <ImageView
+            android:id="@+id/iv_print"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:paddingLeft="0dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_local_printshop_black_24dp" />
+    </LinearLayout>
+
+       <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp">
+
+            <TextView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="4dp"
+                android:text="Tagihan Rp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textColor="@color/font_item" />
+            <EditText
+                android:id="@+id/tv_jumlah_tagihan"
+                android:textSize="@dimen/_18sdp"
+                android:focusable="false"
+                android:layout_width="@dimen/_160sdp"
+                android:text=""
+                android:gravity="center"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_layout_white"
+                android:padding="1dp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textColor="@color/font_item" />
+
+        </LinearLayout>
+
+       <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp">
+
+            <TextView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="4dp"
+                android:text="Pay Type"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textColor="@color/font_item" />
+            <EditText
+                android:id="@+id/tv_pay_type"
+                android:focusable="false"
+                android:text=""
+                android:textSize="@dimen/_18sdp"
+                android:layout_width="@dimen/_160sdp"
+                android:gravity="center"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_layout_white"
+                android:padding="1dp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textColor="@color/font_item" />
+
+           <ImageView
+               android:id="@+id/iv_save"
+               android:layout_width="@dimen/_30sdp"
+               android:layout_height="@dimen/_30sdp"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="@dimen/_10sdp"
+               android:paddingLeft="0dp"
+               android:src="@drawable/ic_save" />
+        </LinearLayout>
+
+       <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp">
+
+            <TextView
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:padding="4dp"
+                android:text="Status"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textColor="@color/font_item" />
+            <EditText
+                android:id="@+id/tv_status_order"
+                android:focusable="false"
+                android:textSize="@dimen/_18sdp"
+                android:layout_width="@dimen/_160sdp"
+                android:text=""
+                android:gravity="center"
+                android:layout_height="@dimen/_28sdp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_layout_white"
+                android:padding="1dp"
+                android:paddingLeft="@dimen/_10sdp"
+                android:textColor="@color/font_item" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</android.support.v7.widget.Toolbar>

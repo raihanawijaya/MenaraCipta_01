@@ -8,8 +8,8 @@
     //MONOCHROME
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorGray">#b2adad</color>
-
+    <color name="colorGray">#BEB7B7</color>
+    <color name="colorBackCatalague">#BC9999</color>
 
     //brown
     <color name="colorBrown1">#fcba03</color>
@@ -18,15 +18,21 @@
     <color name="colorBrown4">#fff0c4</color>
     <color name="colorBrown5">#fff7e0</color>
 
-
+    <color name="colorOpen">#F5F5B7</color>
+    <color name="colorPaid">#69F0AE</color>
+    <color name="colorProcess">#78A7F7</color>
+    <color name="colorDelivered">#66BDB4</color>
+    <color name="colorCancel">#F59C9B</color>
     //GREEN
-    <color name="colorGreen">#abf4d2</color>
-    <color name="colorGreen1">#abf4d2</color>
-    <color name="colorGreen2">#abf4d2</color>
-    <color name="colorGreen3">#abf4d2</color>
-    <color name="colorGreen4">#abf4d2</color>
-    <color name="colorLightBlue">#52cec6</color>
-    <color name="colorMadun">#4dd1a9</color>
+    <color name="colorGreen">#D5F8E1</color>
+    <color name="colorGreen1">#BAF3D8</color>
+    <color name="colorGreen2">#B7F1D5</color>
+    <color name="colorGreen3">#93F5CA</color>
+    <color name="colorGreen4">#7EEBB1</color>
+    <color name="colorGreen5">#7EEBB1</color>
+
+    <color name="colorLightBlue">#62CABE</color>
+    <color name="colorMadun">#37D5A7</color>
 
     //BLUE
     <color name="bluePrimary">#203DD1</color>

@@ -1,0 +1,608 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".SearchArticleActivity">
+
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_margin="@dimen/_2sdp"
+       android:orientation="vertical"
+       android:background="@drawable/bg_layout_white_03"
+       android:layout_height="@dimen/_64sdp">
+
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_1sdp"
+        android:layout_height="@dimen/_18sdp"
+        android:orientation="horizontal">
+        
+
+         <TextView
+             android:id="@+id/tv_machine_code"
+             android:background="@drawable/bg_layout_print_04"
+             android:gravity="center"
+             android:textAlignment="center"
+             android:paddingLeft="@dimen/_6sdp"
+             android:text="flexo 1"
+             android:textSize="@dimen/_8sdp"
+             android:textColor="@color/colorWhite"
+             android:layout_width="@dimen/_60sdp"
+             android:layout_height="match_parent"
+             tools:ignore="RtlCompat" />
+
+         <TextView
+             android:gravity="center"
+             android:paddingLeft="@dimen/_2sdp"
+             android:text="WO :"
+             android:textColor="@color/colorGray"
+             android:textAlignment="textStart"
+             android:textSize="@dimen/_8sdp"
+             android:layout_width="@dimen/_25sdp"
+             android:layout_height="match_parent"
+             tools:ignore="RtlCompat" />
+
+        <TextView
+            android:id="@+id/tv_wo_no"
+            android:gravity="center"
+            android:textAlignment="textStart"
+            android:paddingLeft="@dimen/_6sdp"
+            android:text="0001/MC/06/20"
+            android:textSize="@dimen/_8sdp"
+            android:textColor="@color/colorBlack"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="match_parent"
+            tools:ignore="RtlCompat" />
+
+         <TextView
+             android:gravity="center"
+             android:layout_gravity="center_vertical"
+             android:layout_marginLeft="@dimen/_5sdp"
+             android:text="Proc No :"
+             android:textColor="@color/colorGray"
+             android:textAlignment="textStart"
+             android:textSize="@dimen/_8sdp"
+             android:layout_width="@dimen/_35sdp"
+             android:layout_height="@dimen/_20sdp"
+             tools:ignore="RtlCompat" />
+
+         <TextView
+             android:id="@+id/tv_proc_no"
+             android:layout_width="wrap_content"
+             android:layout_height="match_parent"
+             android:gravity="center"
+             android:paddingLeft="@dimen/_2sdp"
+             android:text="1"
+             android:textAlignment="textStart"
+             android:textColor="@color/colorBlack"
+             android:textSize="@dimen/_8sdp"
+             tools:ignore="RtlCompat" />
+
+        <TextView
+             android:id="@+id/tv_proc_notes"
+             android:layout_gravity="center_vertical"
+             android:paddingLeft="@dimen/_2sdp"
+             android:gravity="center"
+             android:text=""
+             android:textColor="@color/colorBlack"
+             android:textAlignment="center"
+             android:textSize="@dimen/_8sdp"
+             android:layout_width="@dimen/_40sdp"
+             android:layout_height="match_parent"
+             tools:ignore="RtlCompat" />
+         <TextView
+             android:gravity="center"
+             android:layout_gravity="center_vertical"
+             android:paddingLeft="@dimen/_2sdp"
+             android:text="Lot :"
+             android:textColor="@color/colorGray"
+             android:textAlignment="textStart"
+             android:textSize="@dimen/_8sdp"
+             android:layout_width="@dimen/_25sdp"
+             android:layout_height="@dimen/_20sdp"
+             tools:ignore="RtlCompat" />
+
+         <TextView
+             android:id="@+id/tv_lot_id"
+             android:layout_gravity="center_vertical"
+             android:gravity="center"
+             android:textAlignment="textStart"
+             android:paddingLeft="@dimen/_6sdp"
+             android:text="x3935/525"
+             android:textSize="@dimen/_8sdp"
+             android:textColor="@color/colorBlack"
+             android:layout_width="@dimen/_70sdp"
+             android:layout_height="match_parent"
+             tools:ignore="RtlCompat" />
+
+         <TextView
+             android:gravity="center"
+             android:layout_gravity="center_vertical"
+             android:layout_marginLeft="@dimen/_2sdp"
+             android:text="Jml(m):"
+             android:textColor="@color/colorGray"
+             android:textAlignment="textStart"
+             android:textSize="@dimen/_8sdp"
+             android:layout_width="@dimen/_40sdp"
+             android:layout_height="@dimen/_20sdp"
+             tools:ignore="RtlCompat" />
+
+         <TextView
+             android:id="@+id/tv_lot_id_mtr"
+             android:layout_gravity="center_vertical"
+             android:paddingLeft="@dimen/_2sdp"
+             android:gravity="center"
+             android:text="2000"
+             android:textColor="@color/colorBlack"
+             android:textAlignment="textStart"
+             android:textSize="@dimen/_8sdp"
+             android:layout_width="@dimen/_40sdp"
+             android:layout_height="match_parent"
+             tools:ignore="RtlCompat" />
+
+    </LinearLayout>
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_margin="@dimen/_1sdp"
+           android:layout_height="@dimen/_18sdp"
+           android:orientation="horizontal">
+           <TextView
+               android:gravity="center"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="Machine :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_50sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_user_code"
+               android:gravity="center"
+               android:textAlignment="textStart"
+               android:paddingLeft="@dimen/_6sdp"
+               android:text="flexo 1"
+               android:textSize="@dimen/_8sdp"
+               android:textColor="@color/colorBlack"
+               android:layout_width="@dimen/_60sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:gravity="center"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="WO :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_25sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_wo_no1"
+               android:gravity="center"
+               android:textAlignment="textStart"
+               android:paddingLeft="@dimen/_6sdp"
+               android:text="0001/MC/06/20"
+               android:textSize="@dimen/_8sdp"
+               android:textColor="@color/colorBlack"
+               android:layout_width="@dimen/_75sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="@dimen/_5sdp"
+               android:text="Proc No :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_35sdp"
+               android:layout_height="@dimen/_20sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_proc_no1"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:gravity="center"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="1"
+               android:textAlignment="textStart"
+               android:textColor="@color/colorBlack"
+               android:textSize="@dimen/_8sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_proc_notes1"
+               android:layout_gravity="center_vertical"
+               android:paddingLeft="@dimen/_2sdp"
+               android:gravity="center"
+               android:text=""
+               android:textColor="@color/colorBlack"
+               android:textAlignment="center"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+           <TextView
+               android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="Lot :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_25sdp"
+               android:layout_height="@dimen/_20sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_lot_id1"
+               android:layout_gravity="center_vertical"
+               android:gravity="center"
+               android:textAlignment="textStart"
+               android:paddingLeft="@dimen/_6sdp"
+               android:text="x3935/525"
+               android:textSize="@dimen/_8sdp"
+               android:textColor="@color/colorBlack"
+               android:layout_width="@dimen/_70sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="@dimen/_2sdp"
+               android:text="Jml(m):"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="@dimen/_20sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_lot_id_mtr1"
+               android:layout_gravity="center_vertical"
+               android:paddingLeft="@dimen/_2sdp"
+               android:gravity="center"
+               android:text="2000"
+               android:textColor="@color/colorBlack"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_margin="@dimen/_1sdp"
+           android:layout_height="@dimen/_18sdp"
+           android:orientation="horizontal">
+           <TextView
+               android:gravity="center"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="Machine :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_50sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_machine_code2"
+               android:gravity="center"
+               android:textAlignment="textStart"
+               android:paddingLeft="@dimen/_6sdp"
+               android:text="flexo 1"
+               android:textSize="@dimen/_8sdp"
+               android:textColor="@color/colorBlack"
+               android:layout_width="@dimen/_60sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:gravity="center"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="WO :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_25sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_wo_no2"
+               android:gravity="center"
+               android:textAlignment="textStart"
+               android:paddingLeft="@dimen/_6sdp"
+               android:text="0001/MC/06/20"
+               android:textSize="@dimen/_8sdp"
+               android:textColor="@color/colorBlack"
+               android:layout_width="@dimen/_75sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="@dimen/_5sdp"
+               android:text="Proc No :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_35sdp"
+               android:layout_height="@dimen/_20sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_proc_no2"
+               android:layout_width="wrap_content"
+               android:layout_height="match_parent"
+               android:gravity="center"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="1"
+               android:textAlignment="textStart"
+               android:textColor="@color/colorBlack"
+               android:textSize="@dimen/_8sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_proc_notes2"
+               android:layout_gravity="center_vertical"
+               android:paddingLeft="@dimen/_2sdp"
+               android:gravity="center"
+               android:text=""
+               android:textColor="@color/colorBlack"
+               android:textAlignment="center"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+           <TextView
+               android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:paddingLeft="@dimen/_2sdp"
+               android:text="Lot :"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_25sdp"
+               android:layout_height="@dimen/_20sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_lot_id2"
+               android:layout_gravity="center_vertical"
+               android:gravity="center"
+               android:textAlignment="textStart"
+               android:paddingLeft="@dimen/_6sdp"
+               android:text="x3935/525"
+               android:textSize="@dimen/_8sdp"
+               android:textColor="@color/colorBlack"
+               android:layout_width="@dimen/_70sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:layout_marginLeft="@dimen/_2sdp"
+               android:text="Jml(m):"
+               android:textColor="@color/colorGray"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="@dimen/_20sdp"
+               tools:ignore="RtlCompat" />
+
+           <TextView
+               android:id="@+id/tv_lot_id_mtr2"
+               android:layout_gravity="center_vertical"
+               android:paddingLeft="@dimen/_2sdp"
+               android:gravity="center"
+               android:text="2000"
+               android:textColor="@color/colorBlack"
+               android:textAlignment="textStart"
+               android:textSize="@dimen/_8sdp"
+               android:layout_width="@dimen/_40sdp"
+               android:layout_height="match_parent"
+               tools:ignore="RtlCompat" />
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_1sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:background="@drawable/bg_layout_print_01"
+        android:orientation="horizontal">
+
+        <TextView
+            android:gravity="center"
+            android:paddingLeft="@dimen/_5sdp"
+            android:text="Persiapan"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent"
+            tools:ignore="RtlCompat" />
+
+
+        <Button
+            android:id="@+id/btn_mulai_persiapan"
+            android:textSize="@dimen/_8sdp"
+            android:drawableLeft="@drawable/ic_fiber_new_black_24dp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Mulai"/>
+        <Button
+            android:id="@+id/btn_cancel_persiapan"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+
+        <Button
+            android:id="@+id/btn_trouble_persiapan"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_height="wrap_content"
+            android:text="Trouble"
+            android:layout_width="@dimen/_60sdp" />
+
+
+        <Button
+            android:id="@+id/btn_selesai_persiapan"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:text="Selesai"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_1sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:background="@drawable/bg_layout_print_02"
+        android:orientation="horizontal">
+
+        <TextView
+            android:gravity="center"
+            android:paddingLeft="@dimen/_5sdp"
+            android:text="Setting"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/btn_mulai_setting"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Mulai"/>
+        <Button
+            android:id="@+id/btn_cancel_setting"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+         <Button
+            android:id="@+id/btn_trouble_setting"
+             android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:text="Trouble"/>
+
+        <Button
+            android:id="@+id/btn_approved_setting"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:text="QC Approve"/>
+        <Button
+            android:id="@+id/btn_selesai_setting"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="wrap_content"
+            android:text="Selesai"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_1sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:background="@drawable/bg_layout_print_03"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:gravity="center"
+            android:paddingLeft="@dimen/_5sdp"
+            android:text="Cetak"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="match_parent"
+            tools:ignore="RtlCompat" />
+
+        <Button
+            android:id="@+id/btn_mulai_cetak"
+            android:layout_gravity="center_vertical"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Mulai"/>
+        <Button
+            android:id="@+id/btn_cancel_cetak"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Cancel"/>
+
+        <Button
+            android:id="@+id/btn_trouble_cetak"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Trouble"/>
+
+        <Button
+            android:id="@+id/btn_selesai_cetak"
+            android:enabled="false"
+            android:textSize="@dimen/_8sdp"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="match_parent"
+            android:text="Selesai"/>
+    </LinearLayout>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/items_work_order_process_lotid_print_job">
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

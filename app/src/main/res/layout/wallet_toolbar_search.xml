@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="36dp"
+    android:paddingLeft="0dp"
+    android:background="@drawable/bg_input_dua"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="5dp"
+            android:text="Search : "
+            android:paddingLeft="@dimen/_10sdp"
+            android:textColor="@color/font_item" />
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="180dp"
+            android:gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_layout_white"
+            android:padding="5dp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:textColor="@color/font_item" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:visibility="invisible"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="41dp"
+            android:layout_height="50dp"
+            android:paddingLeft="0dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_search" />
+
+    </LinearLayout>
+</android.support.v7.widget.Toolbar>

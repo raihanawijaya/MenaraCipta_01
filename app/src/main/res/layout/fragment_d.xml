@@ -2,22 +2,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_item_2">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:padding="@dimen/_4sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_height="@dimen/_30sdp">
+
+        <TextView
+            android:id="@+id/tv_print_report"
+            android:background="@drawable/bg_for_item_4"
+            android:textColor="@color/colorBlack"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:text="   >>> Print Report ?"
+            android:layout_height="match_parent"></TextView>
+
+    </LinearLayout>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_fragment_d"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:listitem="@layout/items_d">
-        </android.support.v7.widget.RecyclerView>
-
-
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_fragment_d"
+                android:padding="@dimen/_2sdp"
+                android:background="@drawable/bg_layout_white_01"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginBottom="@dimen/_4sdp"
+                tools:listitem="@layout/items_d">
+            </android.support.v7.widget.RecyclerView>
     </android.support.v4.widget.SwipeRefreshLayout>
 
 

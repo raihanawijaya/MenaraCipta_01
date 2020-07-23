@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/_4sdp"
+    android:layout_marginRight="@dimen/_4sdp"
+    android:layout_marginTop="@dimen/_4sdp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/lay_item"
+        android:background="@drawable/bg_layout_white_01"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_30sdp">
+
+                    <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_marginRight="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tv_column_1"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="match_parent"
+                            android:text="Lot id"
+                            tools:ignore="RtlCompat" />
+                        <TextView
+                            android:id="@+id/tv_column_2"
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_height="match_parent"
+                            android:text="2500"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:id="@+id/tv_column_3"
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_80sdp"
+                            android:layout_height="match_parent"
+                            android:text="Lot Id"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="match_parent"
+                            android:text="OK:"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:id="@+id/tv_column_4"
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_height="match_parent"
+                            android:text="2,000 m"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="match_parent"
+                            android:text="NG:"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:id="@+id/tv_column_5"
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_45sdp"
+                            android:layout_height="match_parent"
+                            android:text="2,000 m"
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="match_parent"
+                            android:text="Ttl : "
+                            tools:ignore="RtlCompat" />
+
+                        <TextView
+                            android:id="@+id/tv_column_6"
+                            android:textSize="@dimen/_8sdp"
+                            android:gravity="center_vertical"
+                            android:textAlignment="textStart"
+                            android:textColor="@color/colorBlack"
+                            android:layout_width="@dimen/_55sdp"
+                            android:layout_height="match_parent"
+                            android:text="2,000 m"
+                            tools:ignore="RtlCompat" />
+                        <Button
+                            android:id="@+id/btn_pilih"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/_6sdp"
+                            android:layout_width="@dimen/_40sdp"
+                            android:layout_height="match_parent"
+                            android:text="Pilih "/>
+
+                </LinearLayout>
+
+             </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

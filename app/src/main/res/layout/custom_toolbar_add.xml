@@ -4,20 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:orientation="vertical"
+    android:layout_marginLeft="2dp"
+    android:layout_marginRight="@dimen/_2sdp"
     android:layout_width="match_parent"
     android:layout_height="45dp"
     android:paddingLeft="2dp"
-    android:background="@color/colorBrown1"
+    android:background="@drawable/bg_for_toolbar_3"
     app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <LinearLayout
-        android:weightSum="2"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="@dimen/_200sdp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
@@ -28,15 +29,32 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_username"
-                    android:layout_width="150dp"
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:fontFamily="@font/monsemibold"
-                    android:text="User Name"
-                    android:textColor="@color/colorGray"
-                    android:textSize="20sp" />
+                    android:orientation="vertical">
+
+
+                     <TextView
+                        android:id="@+id/tv_user_code"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:fontFamily="@font/monsemibold"
+                        android:text="Ayu"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12sp" />
+                     <TextView
+                        android:id="@+id/tv_user_name"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:fontFamily="@font/monsemibold"
+                        android:text="Sri Rahayu"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -52,11 +70,18 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/iv_clear"
-                android:src="@drawable/ic_back"
-                android:layout_width="30dp"
-                android:layout_height="50dp" />
+            <TextView
+                android:id="@+id/tv_trx_no"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:inputType="text"
+                android:text=""
+                android:background="@drawable/bg_layout_white_01"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/iv_delete"

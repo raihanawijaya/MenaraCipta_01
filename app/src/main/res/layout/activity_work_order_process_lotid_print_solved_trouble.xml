@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".SearchArticleActivity">
+
+    <include layout="@layout/custom_toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_2sdp"
+        android:orientation="vertical"
+        android:background="@drawable/bg_layout_white_06"
+        android:layout_height="@dimen/_24sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_2sdp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/_1sdp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:text="WO :"
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_wo_no"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="@dimen/_6sdp"
+                    android:text="0001/MC/06/20"
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+
+                    android:gravity="center"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:text="Proc#"
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/colorGray"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_proc_no"
+                    android:gravity="center"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:text=""
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_proc_notes"
+                    android:gravity="center"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="@dimen/_8sdp"
+                    android:text=""
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:text="LotId"
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_lot_id"
+                    android:gravity="center"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="@dimen/_6sdp"
+                    android:text= ""
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:text="Jml (m)"
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_lot_id_mtr"
+                    android:gravity="center"
+                    android:textAlignment="textStart"
+                    android:paddingLeft="@dimen/_6sdp"
+                    android:text= ""
+                    android:textSize="@dimen/_8sdp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="match_parent"
+                    tools:ignore="RtlCompat" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:orientation="horizontal"
+       android:layout_height="@dimen/_65sdp">
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/_2sdp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_layout_white_01"
+            android:layout_height="@dimen/_60sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="@dimen/_2sdp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/tv_job_name"
+                    android:background="@drawable/bg_layout_print_02"
+                    android:focusable="false"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:text="Rowid: "
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <EditText
+                    android:id="@+id/tv_problem_rowid"
+                    android:focusable="false"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorBlack"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:text="Problem : "
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <EditText
+                    android:id="@+id/tv_problem_id"
+                    android:background="@drawable/bg_layout_print_02"
+                    android:focusable="false"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/_4sdp"
+                    android:text="Time :"
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <EditText
+                    android:id="@+id/tv_problem_date"
+                    android:focusable="false"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/colorBlack"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_55sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_2sdp"
+                    android:text="Ket : "
+                    android:textColor="@color/colorGray"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat" />
+
+                <TextView
+                    android:id="@+id/tv_problem_notes"
+                    android:background="@drawable/bg_layout_print_02"
+                    android:layout_gravity="center_vertical"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text=" Keterangan"
+                    android:textColor="@color/colorWhite"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/_8sdp"
+                    android:layout_width="@dimen/_110sdp"
+                    android:layout_height="@dimen/_24sdp"
+                    tools:ignore="RtlCompat">
+
+                </TextView>
+
+            </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_margin="@dimen/_2sdp"
+               android:layout_height="wrap_content"
+               android:weightSum="2"
+               android:orientation="horizontal">
+
+               <TextView
+                   android:gravity="center"
+                   android:layout_gravity="center_vertical"
+                   android:layout_marginLeft="@dimen/_4sdp"
+                   android:text="Catatan : "
+                   android:textColor="@color/colorGray"
+                   android:textAlignment="textStart"
+                   android:textSize="@dimen/_8sdp"
+                   android:layout_width="@dimen/_35sdp"
+                   android:layout_height="@dimen/_24sdp"
+                   tools:ignore="RtlCompat" />
+
+               <EditText
+                   android:id="@+id/et_problem_solve_notes"
+                   android:background="@drawable/bg_layout_white"
+                   android:paddingLeft="@dimen/_5sdp"
+                   android:gravity="center"
+                   android:text=""
+                   android:inputType="textCapSentences"    android:textColor="@color/colorBlack"
+                   android:textAlignment="textStart"
+                   android:textSize="@dimen/_8sdp"
+                   android:layout_width="@dimen/_150sdp"
+                   android:layout_height="@dimen/_24sdp"
+                   tools:ignore="RtlCompat" />
+
+               <TextView
+                   android:gravity="center"
+                   android:layout_gravity="center_vertical"
+                   android:layout_marginLeft="@dimen/_8sdp"
+                   android:text="Oleh: "
+                   android:textColor="@color/colorGray"
+                   android:textAlignment="textStart"
+                   android:textSize="@dimen/_8sdp"
+                   android:layout_width="@dimen/_20sdp"
+                   android:layout_height="@dimen/_24sdp"
+                   tools:ignore="RtlCompat" />
+
+               <EditText
+                   android:id="@+id/tv_problem_solved_by"
+                   android:background="@drawable/bg_layout_white"
+                   android:paddingLeft="@dimen/_2sdp"
+                   android:gravity="center"
+                   android:text=""
+                   android:textColor="@color/colorBlack"
+                   android:inputType="textCapCharacters"
+                   android:textAlignment="center"
+                   android:textSize="@dimen/_8sdp"
+                   android:layout_width="@dimen/_30sdp"
+                   android:layout_height="@dimen/_24sdp"
+                   tools:ignore="RtlCompat" />
+
+               <TextView
+                   android:gravity="center"
+                   android:layout_gravity="center_vertical"
+                   android:layout_marginLeft="@dimen/_8sdp"
+                   android:text="Jam: "
+                   android:textColor="@color/colorGray"
+                   android:textAlignment="textStart"
+                   android:textSize="@dimen/_8sdp"
+                   android:layout_width="@dimen/_20sdp"
+                   android:layout_height="@dimen/_24sdp"
+                   tools:ignore="RtlCompat" />
+
+               <EditText
+                   android:id="@+id/et_problem_solved_time"
+                   android:focusableInTouchMode="false"
+                   android:background="@drawable/bg_layout_white"
+                   android:focusable="false"
+                   android:paddingLeft="@dimen/_2sdp"
+                   android:gravity="center"
+                   android:text=""
+                   android:textColor="@color/colorBlack"
+                   android:textAlignment="center"
+                   android:textSize="@dimen/_8sdp"
+                   android:layout_width="@dimen/_55sdp"
+                   android:layout_height="@dimen/_24sdp"
+                   tools:ignore="RtlCompat" />
+
+               <CheckBox
+                   android:id="@+id/cb_problem_done"
+                   android:gravity="center"
+                   android:paddingLeft="@dimen/_5sdp"
+                   android:layout_marginLeft="@dimen/_10sdp"
+                   android:text="Hambatan Beres"
+                   android:textColor="@color/colorGray"
+                   android:textAlignment="textStart"
+                   android:textSize="@dimen/_8sdp"
+                   android:layout_width="@dimen/_55sdp"
+                   android:layout_height="match_parent"
+                   tools:ignore="RtlCompat" />
+
+               <Button
+                   android:id="@+id/btn_solved_hambatan"
+                   android:layout_width="@dimen/_70sdp"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center_vertical"
+                   android:layout_marginLeft="@dimen/_12sdp"
+                   android:drawableLeft="@drawable/ic_done"
+                   android:text="Beres ?"
+                   android:textSize="@dimen/_10sdp" />
+           </LinearLayout>
+
+
+
+           </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

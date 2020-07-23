@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_30sdp"
+    android:paddingLeft="0dp"
+    android:layout_margin="@dimen/_2sdp"
+    android:background="@drawable/bg_input_dua"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+       <LinearLayout
+        android:orientation="horizontal"
+        android:padding="@dimen/_2sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp">
+
+           <TextView
+               android:id="@+id/tv_table_id"
+               android:layout_width="@dimen/_20sdp"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:layout_marginRight="@dimen/_5sdp"
+               android:background="@drawable/bg_layout_white"
+               android:gravity="center"
+               android:padding="5dp"
+               android:paddingLeft="@dimen/_10sdp"
+               android:text="No Meja"
+               android:textColor="@color/font_item" />
+
+           <EditText
+               android:id="@+id/tv_ord_no"
+               android:layout_width="180dp"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:background="@drawable/bg_layout_white"
+               android:enabled="false"
+               android:focusable="false"
+               android:gravity="center"
+               android:padding="1dp"
+               android:paddingLeft="@dimen/_10sdp"
+               android:textColor="@color/font_item" />
+
+           <TextView
+               android:layout_width="@dimen/_25sdp"
+               android:layout_height="wrap_content"
+               android:gravity="center"
+               android:layout_gravity="center_vertical"
+               android:padding="2dp"
+               android:text="Qty"
+               android:paddingLeft="@dimen/_10sdp"
+               android:textColor="@color/font_item" />
+
+
+           <ImageView
+               android:id="@+id/iv_minus"
+               android:layout_marginLeft="@dimen/_1sdp"
+               android:layout_width="@dimen/_20sdp"
+               android:layout_height="@dimen/_20sdp"
+               android:paddingLeft="0dp"
+               android:layout_gravity="center_vertical"
+               android:src="@drawable/ic_chevron_left_black_24dp" />
+
+
+           <EditText
+               android:id="@+id/tv_qty_order"
+               android:layout_width="@dimen/_25sdp"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:background="@drawable/bg_layout_white"
+               android:enabled="false"
+               android:focusable="false"
+               android:gravity="center"
+               android:inputType="number"
+               android:padding="1dp"
+               android:paddingLeft="@dimen/_10sdp"
+               android:text="1"
+               android:textColor="@color/font_item" />
+
+           <ImageView
+               android:id="@+id/iv_plus"
+               android:layout_marginLeft="@dimen/_1sdp"
+               android:layout_width="@dimen/_20sdp"
+               android:layout_height="@dimen/_20sdp"
+               android:paddingLeft="0dp"
+               android:layout_gravity="center_vertical"
+               android:src="@drawable/ic_chevron_right_black_24dp" />
+
+           <ImageView
+               android:id="@+id/iv_plus_lima"
+               android:layout_marginLeft="@dimen/_1sdp"
+               android:layout_width="@dimen/_16sdp"
+               android:layout_height="@dimen/_16sdp"
+               android:paddingLeft="0dp"
+               android:layout_gravity="center_vertical"
+               android:src="@drawable/ic_update"/>
+
+
+           <CheckBox
+               android:id="@+id/cb_bungkus"
+               android:layout_marginLeft="@dimen/_2sdp"
+               android:layout_gravity="center_vertical"
+               android:layout_width="@dimen/_50sdp"
+               android:layout_height="@dimen/_24sdp"
+               android:textColor="@color/font_item"
+               android:text="Bungkus" />
+
+
+       </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.Toolbar>

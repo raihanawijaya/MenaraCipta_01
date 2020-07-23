@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    tools:context=".SearchArticleActivity">
+
+    <include layout="@layout/custom_toolbar_g_detail" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/_2sdp"
+        android:layout_height="@dimen/_24sdp"
+        android:weightSum="2"
+        android:background="@drawable/bg_layout_white_03"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cetak_tagihan"
+            android:layout_weight="1"
+            android:textSize="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cetak Tagihan"/>
+        <Button
+            android:id="@+id/btn_cetak_faktur"
+            android:textSize="@dimen/_10sdp"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cetak Faktur "/>
+
+
+    </LinearLayout>
+
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_g_detail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/items_g_detail">
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

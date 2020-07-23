@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:padding="@dimen/_6sdp">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:padding="@dimen/_4sdp"
+    android:background="@drawable/bg_layout_white_03"
+    android:layout_marginBottom="@dimen/_3sdp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:orientation="horizontal"
+        android:layout_height="@dimen/_30sdp">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="@dimen/_80sdp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:text="Dari Meja : "
+            android:layout_height="match_parent"></TextView>
+
+        <EditText
+            android:id="@+id/et_meja_1"
+            android:focusable="false"
+            android:inputType="text"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_14sdp"
+            android:background="@drawable/bg_layout_white"
+            android:textColor="@color/colorBlack"
+            android:layout_width="@dimen/_60sdp"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/_3sdp"
+            android:textAlignment="center"
+            android:text=""
+            android:layout_height="match_parent"
+            tools:ignore="RtlCompat"></EditText>
+
+        <Button
+            android:id="@+id/btn_pindah_meja"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Pindah Meja "/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="@dimen/_2sdp"
+        android:orientation="horizontal"
+        android:layout_height="@dimen/_30sdp">
+
+        <TextView
+            android:textColor="@color/colorBlack"
+            android:layout_width="@dimen/_80sdp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/_10sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:text="Ke Meja"
+            android:layout_height="match_parent"></TextView>
+
+        <EditText
+            android:id="@+id/et_meja_2"
+            android:focusable="false"
+            android:textAlignment="center"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_14sdp"
+            android:background="@drawable/bg_layout_white"
+            android:layout_width="@dimen/_60sdp"
+            android:textColor="@color/colorBlack"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/_3sdp"
+            android:text=""
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/btn_gabung_meja"
+            android:visibility="invisible"
+            android:layout_marginLeft="@dimen/_40sdp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="@dimen/_75sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:text="Gabung Meja "/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_fragment_l"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/items_l">
+            </android.support.v7.widget.RecyclerView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+</LinearLayout>

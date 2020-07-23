@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/_2sdp"
+    android:layout_marginRight="@dimen/_2sdp"
+    android:layout_marginTop="@dimen/_1sdp"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_24sdp">
+
+       <LinearLayout
+        android:id="@+id/lay_item"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+                 <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="0dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                    android:id="@+id/tv_column_2"
+                    android:textSize="@dimen/_11sdp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="left"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="SOUP IKAN"
+                    tools:ignore="RtlCompat" />
+                </LinearLayout>
+
+       </LinearLayout>
+</LinearLayout>
